@@ -26,7 +26,7 @@
       <h2>New appointment</h2>
       <p class="lead">Here you can create an appointment</p>
     </div>
-    
+    <!-- Patient's Info -->
     <div class="row">
       <div class="col-md-4 order-md-2 mb-4">
         <div class="card" style="width: 18rem;">
@@ -34,34 +34,23 @@
             <h5 class="card-title">George Giamouridis</h5>
             <p class="card-text">#ID</p>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Father's name</li>
-            <li class="list-group-item">Mother's name</li>
-            <li class="list-group-item">Gender</li>
-            <li class="list-group-item">Date of birth</li>
-            <li class="list-group-item">Insurance ID</li>
-            <li class="list-group-item">Address</li>
-            <li class="list-group-item">Home phone</li>
-            <li class="list-group-item">Work phone</li>
-            <li class="list-group-item">Mobile phone</li>
-          </ul>
         </div>
       </div>
-      
+      <!-- Make an Application -->
       <div class="col-md-8 order-md-1">
         <h4 class="mb-3">New Application</h4>
         <form class="needs-validation" novalidate>
           
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="username">Appointment ID</label>
+              <label for="appId">Appointment ID</label>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <button type="button" class="input-group-text">#</button>
                 </div>
-                <input type="text" class="form-control" id="username" required>
+                <input type="text" class="form-control" id="appId" required>
                 <div class="invalid-feedback" style="width: 100%;">
-                  Your username is required.
+                  Application ID is required.
                 </div>
               </div>
               <div class="invalid-feedback">
@@ -69,18 +58,18 @@
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="lastName">Date</label>
-              <input type="date" class="form-control" id="username">
+              <label for="Date">Exam Date</label>
+              <input type="date" class="form-control" id="examDate">
               <div class="invalid-feedback">
                 Valid last name is required.
               </div>
             </div>
           </div>
           
-          
+          <!-- Available Doctors -->
           <div class="form-group">
-            <label for="comment">Available Doctors</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <label for="doctor">Available Doctors</label>
+            <select class="form-control" id="doctor">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -104,30 +93,5 @@
       <!-- Placed at the end of the document so the pages load faster -->
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-      <script src="../../assets/js/vendor/popper.min.js"></script>
-      <script src="../../dist/js/bootstrap.min.js"></script>
-      <script src="../../assets/js/vendor/holder.min.js"></script>
-      <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (function() {
-        'use strict';
-        
-        window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
-          
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
-      </script>
     </body>
     </html>
