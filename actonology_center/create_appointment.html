@@ -4,14 +4,14 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+  
   <title>X CORP - Appointment</title>
 </head>
 <body class="bg-light">
-
+  
   <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand">typos idrimetos (kliniki/nosokomio....)</a>
     <ul class="navbar-nav">
@@ -20,13 +20,13 @@
       </li>
     </ul>
   </nav>
-
+  
   <div class="container">
     <div class="py-5 text-center">
       <h2>New appointment</h2>
       <p class="lead">Here you can create an appointment</p>
     </div>
-
+    
     <div class="row">
       <div class="col-md-4 order-md-2 mb-4">
         <div class="card" style="width: 18rem;">
@@ -47,14 +47,14 @@
           </ul>
         </div>
       </div>
-
+      
       <div class="col-md-8 order-md-1">
         <h4 class="mb-3">New Application</h4>
         <form class="needs-validation" novalidate>
-
+          
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="username">Exam ID</label>
+              <label for="username">Appointment ID</label>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <button type="button" class="input-group-text">#</button>
@@ -69,73 +69,65 @@
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="lastName">Priority</label>
-              <input type="text" class="form-control" id="username" placeholder="High" disabled>
+              <label for="lastName">Date</label>
+              <input type="date" class="form-control" id="username">
               <div class="invalid-feedback">
                 Valid last name is required.
               </div>
             </div>
           </div>
-
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="firstName">Today's date</label>
-              <input type="datetime-local" class="form-control" id="firstName" placeholder="todays date" disabled>
-              <div class="invalid-feedback">
-                Valid first name is required.
-              </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="lastName">Recommended exam date</label>
-              <input type="datetime-local" class="form-control" id="lastName" required>
-              <div class="invalid-feedback">
-                Valid last name is required.
-              </div>
-            </div>
-          </div>
+          
+          
           <div class="form-group">
-            <label for="comment">Exam description</label>
-            <textarea class="form-control" rows="5" id="comment" disabled></textarea>
+            <label for="comment">Available Doctors</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
+          
           <div class="form-group">
             <label for="comment">Comments</label>
             <textarea class="form-control" rows="5" id="comment"></textarea>
           </div>
-
+          
           <hr class="mb-4">
           <button class="btn btn-primary btn-lg btn-block" type="submit">Send</button>
         </form><br>
-  </div>
-
-  <!-- Bootstrap core JavaScript
-  ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-  <script src="../../assets/js/vendor/popper.min.js"></script>
-  <script src="../../dist/js/bootstrap.min.js"></script>
-  <script src="../../assets/js/vendor/holder.min.js"></script>
-  <script>
-  // Example starter JavaScript for disabling form submissions if there are invalid fields
-  (function() {
-    'use strict';
-
-    window.addEventListener('load', function() {
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      var forms = document.getElementsByClassName('needs-validation');
-
-      // Loop over them and prevent submission
-      var validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener('submit', function(event) {
-          if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
+      </div>
+      
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <script src="../../assets/js/vendor/popper.min.js"></script>
+      <script src="../../dist/js/bootstrap.min.js"></script>
+      <script src="../../assets/js/vendor/holder.min.js"></script>
+      <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
         }, false);
-      });
-    }, false);
-  })();
-  </script>
-</body>
-</html>
+      })();
+      </script>
+    </body>
+    </html>
