@@ -24,3 +24,28 @@ SELECT `patient_ssn` FROM appointment WHERE appointment.id = `$appointmentId`
 
 SELECT `request_id` FROM appointment WHERE appointment.id = `$appointmentId`
     SELECT `id`, `appointmentId`, `description` FROM actinology_requests WHERE id = `$request_id`
+    
+
+-- The Actinlogist Allocation Algorithm
+-- 1. Find Max
+SELECT `actinologist`, count(*) FROM appointment GROUP BY `actinologist` ORDER BY COUNT(*) DESC 
+MAX = arr[1]
+
+function deside_query() {
+    foreach(actinologist in actinologists) {
+        if (actinologist[i] != max) {
+            return false 
+        } else {
+            return true
+        }
+    }
+}
+
+if deside_query() == true {
+    MAX = the number in ()
+    do_query(SELECT * FROM `actinologist`)
+} else deside_query() == false {
+    do_query(SELECT `actinologist`, count(*) FROM appointment WHERE count(*) < MAX )
+    -- Store The Number of Appointments per Actinologist
+    do_query(SELECT `name`, `last_name`, `email` FROM `actinologist` WHERE `email` = `$email`)  
+}
