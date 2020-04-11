@@ -28,7 +28,7 @@ SELECT `request_id` FROM appointment WHERE appointment.id = `$appointmentId`
 
 -- The Actinlogist Allocation Algorithm
 -- 1. Find Max
-SELECT `actinologist`, count(*) FROM appointment GROUP BY `actinologist` ORDER BY COUNT(*) DESC 
+SELECT `actinologist`, count(actinologist) as totalcount FROM appointment GROUP BY `actinologist` ORDER BY `totalcount` DESC
 MAX = arr[1]
 
 function deside_query() {
@@ -45,7 +45,12 @@ if deside_query() == true {
     MAX = the number in ()
     do_query(SELECT * FROM `actinologist`)
 } else deside_query() == false {
-    do_query(SELECT `actinologist`, count(*) FROM appointment WHERE count(*) < MAX )
+    do_query(SELECT `actinologist` FROM (SELECT `actinologist`, count(*) AS totalcount FROM appointment GROUP BY `actinologist`) as subquery WHERE totalcount < MAX)
+
+    -- -- <Alternative>
+    SELECT `name`, `last_name` FROM actinologist INNER JOIN (SELECT `actinologist`, count(*) AS totalcount FROM appointment GROUP BY `actinologist`) as subquery ON actinologist.email = subquery.actinologist
+    -- -- </Alternative>
+
     -- Store The Number of Appointments per Actinologist
     do_query(SELECT `name`, `last_name`, `email` FROM `actinologist` WHERE `email` = `$email`)  
 }
