@@ -45,10 +45,10 @@ if deside_query() == true {
     MAX = the number in ()
     do_query(SELECT * FROM `actinologist`)
 } else deside_query() == false {
-    do_query(SELECT `actinologist` FROM (SELECT `actinologist`, count(*) AS totalcount FROM appointment GROUP BY `actinologist`) as subquery WHERE totalcount < MAX)
+    do_query(SELECT `actinologist`, `name`, `last_name` FROM (SELECT `actinologist`, count(*) AS totalcount FROM appointment GROUP BY `actinologist`) as subquery, actinologist WHERE totalcount < MAX)
 
     -- -- <Alternative>
-    SELECT `name`, `last_name` FROM actinologist INNER JOIN (SELECT `actinologist`, count(*) AS totalcount FROM appointment GROUP BY `actinologist`) as subquery ON actinologist.email = subquery.actinologist
+    SELECT `name`, `last_name`, `email` FROM actinologist INNER JOIN (SELECT `actinologist`, count(*) AS totalcount FROM appointment GROUP BY `actinologist`) as subquery ON actinologist.email = subquery.actinologist WHERE totalcount < 2
     -- -- </Alternative>
 
     -- Store The Number of Appointments per Actinologist
