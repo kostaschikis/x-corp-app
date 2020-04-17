@@ -46,9 +46,9 @@
               <label for="appId">Appointment ID</label>
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <button type="button" class="input-group-text">#</button>
+                  <button type="button" class="input-group-text" onclick="randomId()">#</button>
                 </div>
-                <input type="text" class="form-control" name="appointmentId" id="appId" required>
+                <input type="text" class="form-control" name="appointmentId" id="appId" placeholder="Press to generate an Appointment ID" required>
                 <div class="invalid-feedback" style="width: 100%;">
                   Application ID is required.
                 </div>
@@ -84,6 +84,21 @@
           <button class="btn btn-primary btn-lg btn-block" type="submit">Send</button>
         </form><br>
       </div>
+
+      <script>
+        function randomId() {
+          var length = 10;
+          var result = '';
+          var characters = '0123456789';
+          var charactersLength = characters.length;
+    
+          for (var i = 0; i < length; i++) {
+           result += characters.charAt(Math.floor(Math.random() * charactersLength));
+          }
+    
+          document.getElementById("appId").value = "ap" +result;
+        }
+        </script>
 
       <!-- Bootstrap core JavaScript
       ================================================== -->
