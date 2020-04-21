@@ -50,7 +50,7 @@ function register_user($firstName, $lastName, $email, $speciality, $password, $c
         mysqli_stmt_execute($stmt);
 
         $_SESSION['activationLinkSentMessage'] = "<p class='p-3 mb-2 bg-secondary text-white'>An activation link has been sent to your email account. Please check your spam folder as well.</p>";
-        header("Location: ../../index.html?success=true");
+        header("Location: ../../index.php?regSuccess=true");
     }
 
     $stmt->close();

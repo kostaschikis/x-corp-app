@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,10 +22,18 @@
   </nav>
 
   <?php 
-    if ($_GET['logout'] == 'success') {
+    if ( isset($_GET['logout']) && $_GET['logout'] == 'success') {
       echo '
       <div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>You have been logout.</strong> You can login again by using your credentials.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>';
+    } else if (isset($_GET['regSuccess']) && $_GET['regSuccess'] == 'true') {
+      echo '
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Your Account Has Been Created Successfully.</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
@@ -79,7 +85,7 @@
         document.getElementById("demo").innerHTML = "Login as " +x;
     }
   </script>
-  
+
   <!-- CDN Scripts -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
