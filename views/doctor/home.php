@@ -1,3 +1,15 @@
+<?php session_start(); 
+  $root = '../../';
+
+  if (!is_user_logged_in()) {
+    header("Location:" . $root);  
+    exit();
+  }
+  
+  function is_user_logged_in() {
+    return isset($_SESSION['name']) || isset($_COOKIE['user']);
+  }
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,17 +25,17 @@
   <body class="bg-light">
 
     <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand">Radiology Center</a>
+      <a class="navbar-brand">Doctor Panel</a>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <a class="nav-link" href="<?php echo $root ?>php/Auth/logout.php">Logout</a>
         </li>
       </ul>
     </nav>
 
     <main role="main" class="container">
       <div class="py-5 text-center">
-        <h2>Logged-in as & id</h2>
+        <h2>Logged-in as <?php echo $_SESSION['name'] ?></h2>
         <p class="lead">Edw mporeite na dhmiourgisete ena rantevou gia thn eksetasi enos astheni</p>
         <a class="btn btn-primary" href="./patient.html" role="button">New Exam</a>
       </div>
@@ -67,14 +79,6 @@
       </ul>
     </main>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-    <script src="offcanvas.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   </body>
 </html>

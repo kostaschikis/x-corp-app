@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,7 +24,7 @@
   </nav>
   <main role="main" class="container">
     <div class="py-5 text-center">
-      <h2>Logged-in as & id</h2>
+      <h2>Logged-in as <?php echo $_SESSION['name'] ?></h2>
       <p class="lead">Edw mporeite na deite tis eksetaseis pou exete na kanete</p>
     </div>
     <!-- Exams | To-Do -->

@@ -29,7 +29,7 @@ function login_user($email, $password, $table, $conn) {
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("Location: ../../index.html?error=sqlerror");
+        header("Location: ../../index.php?error=sqlerror");
     } else {
         // Get the row that contain the user's info
         mysqli_stmt_bind_param($stmt, "s", $email);
@@ -50,18 +50,31 @@ function login_user($email, $password, $table, $conn) {
                 session_start();
                 $_SESSION["name"] = $row['name'];
                 $_SESSION["logStatus"] = true;
-                header("Location: ../../index.html?login=success");
+                redirectUser($table);
+                // header("Location: ../../index.html?login=success");
                 exit();
             
             } else {
-                header("Location: ../../index.html?error=wrongpass");
+                header("Location: ../../index.php?error=wrongpass");
                 exit();
             }
         } else {
-            header("Location: ../../index.html?error=nouser");
+            header("Location: ../../index.php?error=nouser");
             exit();
         }
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn); 
+}
+
+function redirectUser($speciality) {
+    $root = '../..';
+
+    if ($speciality == 'doctor') {
+        header("Location: $root/views/doctor/");
+    } else if ($speciality == 'actinology_center') {
+        header("Location: $root/views/actinology_center/");
+    } else if ($speciality == 'radiologist') {
+        header("Location: $root/views/radiologist/");
+    }
 }
