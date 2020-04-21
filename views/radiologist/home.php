@@ -1,5 +1,17 @@
-<?php session_start(); ?>
+<?php 
+  session_start(); 
+  $root = '../../';
 
+  // Protect The Route
+  if (!is_user_logged_in()) {
+    header("Location:" . $root);  
+    exit();
+  }
+  
+  function is_user_logged_in() {
+    return isset($_SESSION['name']) || isset($_COOKIE['user']);
+  }
+?>
 <!doctype html>
 <html lang="en">
 <head>

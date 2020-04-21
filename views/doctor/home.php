@@ -1,6 +1,8 @@
-<?php session_start(); 
+<?php 
+  session_start(); 
   $root = '../../';
 
+  // Protect The Route
   if (!is_user_logged_in()) {
     header("Location:" . $root);  
     exit();

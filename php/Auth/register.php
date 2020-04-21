@@ -26,7 +26,8 @@ register_user($fistName, $lastName, $email, $speciality, $password, $conn);
 
 
 function register_user($firstName, $lastName, $email, $speciality, $password, $conn) {
-
+    
+    $root = '../..';
     $table = null;
 
     if ($speciality == 'Doctor') {
@@ -50,7 +51,7 @@ function register_user($firstName, $lastName, $email, $speciality, $password, $c
         mysqli_stmt_execute($stmt);
 
         $_SESSION['activationLinkSentMessage'] = "<p class='p-3 mb-2 bg-secondary text-white'>An activation link has been sent to your email account. Please check your spam folder as well.</p>";
-        header("Location: ../../index.php?regSuccess=true");
+        header("Location: $root/index.php?regSuccess=true");
     }
 
     $stmt->close();

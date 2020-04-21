@@ -1,3 +1,17 @@
+<?php 
+  session_start(); 
+  $root = '../../';
+
+  // Protect The Route
+  if (!is_user_logged_in()) {
+    header("Location:" . $root);  
+    exit();
+  }
+  
+  function is_user_logged_in() {
+    return isset($_SESSION['name']) || isset($_COOKIE['user']);
+  }
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,14 +30,14 @@
       <a class="navbar-brand">Radiology Center</a>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <a class="nav-link" href="<?php echo $root ?>php/Auth/logout.php">Logout</a>
         </li>
       </ul>
     </nav>
 
     <main role="main" class="container">
       <div class="py-5 text-center">
-        <h2>Logged-in as & id</h2>
+        <h2>Logged-in as <?php echo $_SESSION['name'] ?></h2>
         <p class="lead">Edw mporeite na dhmiourgisete ena rantevou gia thn eksetasi enos astheni</p>
       </div>
 

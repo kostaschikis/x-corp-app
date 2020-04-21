@@ -10,7 +10,7 @@
 
   <title>X Corp - Home</title>
   <style>
-    form{
+    form {
       margin: 0 auto;
     }
   </style>

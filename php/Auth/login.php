@@ -51,7 +51,7 @@ function login_user($email, $password, $table, $conn) {
                 $_SESSION["name"] = $row['name'];
                 $_SESSION["logStatus"] = true;
                 redirectUser($table);
-                // header("Location: ../../index.html?login=success");
+                // header("Location: ../../index.php?login=success");
                 exit();
             
             } else {
@@ -69,7 +69,7 @@ function login_user($email, $password, $table, $conn) {
 
 function redirectUser($speciality) {
     $root = '../..';
-
+    
     if ($speciality == 'doctor') {
         header("Location: $root/views/doctor/");
     } else if ($speciality == 'actinology_center') {
