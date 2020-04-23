@@ -74,7 +74,7 @@
     <!-- Forgot My Password -->
     <a href="#" class="d-flex justify-content-center">I forgot my password</a>
     <div class="form-group d-flex justify-content-center">
-      <p>If you dont have an account, create one <a href="register.html">here</a>.</p>
+      <p>If you dont have an account, create one <a href="register.php">here</a>.</p>
     </div>
   </form>
 

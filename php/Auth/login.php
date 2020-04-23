@@ -10,26 +10,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $speciality = str_replace(' ', '', $_POST['specialty']);
 }
 
-// Finc The Right Table for the query
-$table = null;
-if ($speciality == 'Doctor') {
-    $table = 'doctor';
-} else if ($speciality == 'RadiologyCenterStaff') {
-    $table = 'actinology_center';
-} else if ($speciality == 'Radiologist') {
-    $table = 'radiologist';
-}
+// Find The Right Table for the query
+$table = find_table($speciality);
 
 login_user($email, $password, $table, $conn);
 
-
+/**
+ * function login_user 
+ * function redirectUser 
+ * function find_table 
+ */
 function login_user($email, $password, $table, $conn) {
+
+    $root = '../..';
     // Check if that username exist in DB 
     $sql = "SELECT * FROM $table WHERE email=?";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("Location: ../../index.php?error=sqlerror");
+        header("Location: $root/index.php?error=sqlerror");
     } else {
         // Get the row that contain the user's info
         mysqli_stmt_bind_param($stmt, "s", $email);
@@ -55,11 +54,11 @@ function login_user($email, $password, $table, $conn) {
                 exit();
             
             } else {
-                header("Location: ../../index.php?error=wrongpass");
+                header("Location: $root/index.php?error=wrongpass");
                 exit();
             }
         } else {
-            header("Location: ../../index.php?error=nouser");
+            header("Location: $root/index.php?error=nouser");
             exit();
         }
     }
@@ -76,5 +75,15 @@ function redirectUser($speciality) {
         header("Location: $root/views/actinology_center/");
     } else if ($speciality == 'radiologist') {
         header("Location: $root/views/radiologist/");
+    }
+}
+
+function find_table($speciality) {
+    if ($speciality == 'Doctor') {
+        return 'doctor';
+    } else if ($speciality == 'RadiologyCenterStaff') {
+        return 'actinology_center';
+    } else if ($speciality == 'Radiologist') {
+        return 'radiologist';
     }
 }

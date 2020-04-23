@@ -14,35 +14,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Validate Form Data
-// if ($password != $passwordConfirm) {
-//     header("Location: ./register.php?error=passwordnotmatch");
-//     exit();
-// } else if ($speciality != 'Doctor' || $speciality != 'RadiologyCenterStuff' || $speciality != 'Radiologist') {
-//     header("Location: ./register.php?error=wrongspeciality");
-//     exit();
-// }
+if ($password != $passwordConfirm) {
+    header("Location: ../../register.php?error=passwordnotmatch");
+    exit();
+} else if ($speciality != 'Doctor' && $speciality != 'RadiologyCenterStaff' && $speciality != 'Radiologist') {
+    header("Location: ../../register.php?error=wrongspeciality");
+    exit();
+} else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header("Location: ../../register.php?error=wrongsemail");
+    exit();
+} else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $name)) {
+    header("Location: ../../register.php?error=wrongemailorpassword");
+}
 
 register_user($fistName, $lastName, $email, $speciality, $password, $conn);
 
-
+/**
+ * function register_user
+ * function find_table
+ */
 function register_user($firstName, $lastName, $email, $speciality, $password, $conn) {
     
     $root = '../..';
-    $table = null;
+    $table = find_table($speciality);
 
-    if ($speciality == 'Doctor') {
-        $table = 'doctor';
-    } else if ($speciality == 'RadiologyCenterStaff') {
-        $table = 'actinology_center';
-    } else if ($speciality == 'Radiologist') {
-        $table = 'radiologist';
-    }
-    
     $sqlQuery = "INSERT INTO $table (name, last_name, email, password) VALUES(?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sqlQuery)) {
-        head("register.php?error=sqlerror");
+        header("./register.php?error=sqlerror");
     } else {
         // Hash The Password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -55,4 +55,14 @@ function register_user($firstName, $lastName, $email, $speciality, $password, $c
     }
 
     $stmt->close();
+}
+
+function find_table($speciality) {
+    if ($speciality == 'Doctor') {
+        return 'doctor';
+    } else if ($speciality == 'RadiologyCenterStaff') {
+        return 'actinology_center';
+    } else if ($speciality == 'Radiologist') {
+        return 'radiologist';
+    }
 }
