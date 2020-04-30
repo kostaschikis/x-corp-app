@@ -48,6 +48,7 @@ function login_user($email, $password, $table, $conn) {
                  */
                 session_start();
                 $_SESSION["name"] = $row['name'];
+                $_SESSION["email"] = $row['email'];
                 $_SESSION["logStatus"] = true;
                 redirectUser($table);
                 // header("Location: ../../index.php?login=success");

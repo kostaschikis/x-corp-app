@@ -1,16 +1,26 @@
 <?php 
-  session_start(); 
+  session_start();
   $root = '../../';
-
+  
+  // Includes
+  include $root.'php/app/ActinologyRequests.php';
+ 
   // Protect The Route
   if (!is_user_logged_in()) {
     header("Location:" . $root);  
     exit();
   }
+
+  $doctor = $_SESSION['email'];
+
+  // Get Current Doctor's Actinology Requests
+  $actRequests = getActinologyRequests($doctor);
   
+  // Functions
   function is_user_logged_in() {
     return isset($_SESSION['name']) || isset($_COOKIE['user']);
   }
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -43,41 +53,25 @@
       </div>
 
       <ul class="list-group mb-3">
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Application ID</h6>
-            <span class="badge badge-pill badge-success">Completed</span>
-          </div>
-          <span class="text-muted">Low priority</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Application ID</h6>
-            <span class="badge badge-pill badge-success">Completed</span>
-          </div>
-          <span class="text-muted">High priority</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Application ID</h6>
-            <span class="badge badge-pill badge-danger">Pending</span>
-          </div>
-          <span class="text-muted">Low priority</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Application ID</h6>
-            <span class="badge badge-pill badge-success">Completed</span>
-          </div>
-          <span class="text-muted">High priority</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Application ID</h6>
-            <span class="badge badge-pill badge-danger">Pending</span>
-          </div>
-          <span class="text-muted">Low priority</span>
-        </li>
+        <?php 
+          foreach ($actRequests as $req) {
+            $id = $req["id"];
+            $priority = $req["priority"];
+            $approval = $req["approval"];
+
+            $approval = ($approval == 0) ? 'Pending' : 'Completed';
+
+            echo "
+              <li class='list-group-item d-flex justify-content-between lh-condensed'>
+                <div>
+                  <h6 class='my-0'>Application Id: $id</h6>
+                  <span class='badge badge-pill badge-success'>$approval</span>
+                </div>
+                <span class='text-muted'>$priority Priority</span>
+              </li>
+            ";
+          }
+        ?>
       </ul>
     </main>
 
