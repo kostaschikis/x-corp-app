@@ -1,3 +1,6 @@
+<?php
+  $temp = 12;
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -27,10 +30,10 @@
       <p class="lead">Patient's Information</p>
     </div>
     <!-- Make New Application -->
-    <form class="needs-validation" novalidate>
+    <form class="needs-validation" action="exam.php" method="POST" novalidate>
       <div class="mb-3">
-        <label for="address2">Patient's Address</label>
-        <input type="text" class="form-control" name="address" id="adrs">
+        <label for="address2">Patient's SSN</label>
+        <input type="text" class="form-control" name="ssn" id="adrs">
         <div class="invalid-feedback">
           Patient's Address is required.
         </div>
@@ -97,8 +100,8 @@
       </div>
 
       <div class="mb-3">
-        <label for="address2">Patient's Address</label>
-        <input type="text" class="form-control" name="address" id="adrs">
+        <label for="address2">Patient's Home Address</label>
+        <input type="text" class="form-control" name="homeAddress" id="adrs">
         <div class="invalid-feedback">
           Patient's Address is required.
         </div>

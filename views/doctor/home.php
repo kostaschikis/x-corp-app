@@ -3,8 +3,9 @@
   $root = '../../';
   
   // Includes
-  include $root.'php/app/ActinologyRequests.php';
- 
+  include $root.'php/functions.php';
+  include $root.'php/app/HomeViewRequests.php';
+
   // Protect The Route
   if (!is_user_logged_in()) {
     header("Location:" . $root);  
@@ -15,12 +16,6 @@
 
   // Get Current Doctor's Actinology Requests
   $actRequests = getActinologyRequests($doctor);
-  
-  // Functions
-  function is_user_logged_in() {
-    return isset($_SESSION['name']) || isset($_COOKIE['user']);
-  }
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -49,7 +44,7 @@
       <div class="py-5 text-center">
         <h2>Logged-in as <?php echo $_SESSION['name'] ?></h2>
         <p class="lead">Edw mporeite na dhmiourgisete ena rantevou gia thn eksetasi enos astheni</p>
-        <a class="btn btn-primary" href="./patient.html" role="button">New Exam</a>
+        <a class="btn btn-primary" href="./patient.php" role="button">New Exam</a>
       </div>
 
       <ul class="list-group mb-3">
