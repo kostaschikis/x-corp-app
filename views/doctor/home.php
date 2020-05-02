@@ -37,14 +37,14 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo $root ?>php/Auth/logout.php">Logout</a>
         </li>
-      </ul>
+      </ul> 
     </nav>
 
     <main role="main" class="container">
       <div class="py-5 text-center">
         <h2>Logged-in as <?php echo $_SESSION['name'] ?></h2>
         <p class="lead">Edw mporeite na dhmiourgisete ena rantevou gia thn eksetasi enos astheni</p>
-        <a class="btn btn-primary" href="./patient.php" role="button">New Exam</a>
+        <a class="btn btn-primary" href="./select-action.php" role="button">New Exam</a>
       </div>
 
       <ul class="list-group mb-3">
