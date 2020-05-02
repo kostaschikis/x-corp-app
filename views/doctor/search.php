@@ -41,7 +41,7 @@
   </div>
   <section class="jumbotron text-center">
     <div class="container">      
-        <form autocomplete="off">
+        <form autocomplete="off" action="./exam.php" action="GET">
             <div class="form-group autocomplete">
               <label for="exampleInputEmail1">Search patient</label>
               <input type="email" class="form-control" id="myInput" name="patient" placeholder="Patient">

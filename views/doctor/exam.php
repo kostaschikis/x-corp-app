@@ -11,6 +11,11 @@
     exit();
   }
 
+  if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    // Get patient info from URL & cut the string to get only the ssn
+    // getPatientsInfo($ssn)
+  }
+
   // Get POST Data
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

@@ -1,6 +1,6 @@
 // AJAX call to get Patients List
   
-var patients = ["Kostas Chikimtzis", "George Giamouridis"];
+var patients = ["Kostas Chikimtzis (ssn)", "George Giamouridis (ssn)"];
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), patients);
