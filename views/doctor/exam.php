@@ -26,9 +26,10 @@
     $homePhone = $_POST['homePhone'];
     $workPhone = $_POST['workPhone'];
     $mobilePhone = $_POST['mobilePhone'];
-
   }
 
+  // Get Current Date & Hour Timestamp
+  $currentTime = getCurrentDate();
 
 
 ?>
@@ -76,63 +77,62 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="firstName">First name</label>
-              <input type="text" class="form-control" name="firstName" id="firstname" value="" readonly>
+              <input type="text" class="form-control" name="firstName" value="<?php echo $firstName?>" id="firstname" readonly>
             </div>
             <div class="col-md-6 mb-3">
               <label for="lastName">Last name</label>
-              <input type="text" class="form-control" name="lastName" id="lastname" value="" readonly>
+              <input type="text" class="form-control" name="lastName" value="<?php echo $lastName?>" id="lastname" readonly>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="firstName">Father's name</label>
-              <input type="text" class="form-control" name="fatherName" id="fathersname" value="" readonly>
+              <input type="text" class="form-control" name="fatherName" id="fathersname" value="<?php echo $fatherName?>" readonly>
             </div>
             <div class="col-md-6 mb-3">
               <label for="lastName">Mother's name</label>
-              <input type="text" class="form-control" name="motherName" id="mothersname" value="" readonly>
+              <input type="text" class="form-control" name="motherName" id="mothersname" value="<?php echo $motherName?>" readonly>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-4 mb-3">
               <label for="username">Insurance ID</label>
-              <input type="text" class="form-control" name="zipCode" id="zip" readonly>
+              <input type="text" class="form-control" name="zipCode" value="<?php echo $zipCode?>" id="zip" readonly>
             </div>
             <div class="col-md-4 mb-3">
               <label for="firstName">Gender</label>
-              <input type="text" class="form-control" name="gender" id="gend" value="" readonly>
+              <input type="text" class="form-control" name="gender" id="gender" value="<?php echo $gender?>" readonly>
             </div>
             <div class="col-md-4 mb-3">
               <label for="lastName">Date of birth</label>
-              <input type="text" class="form-control" name="birthDay" id="gend" value="" readonly>
+              <input type="text" class="form-control" name="birthDay" id="birthday" value="<?php echo $birthDay?>" readonly>
             </div>
           </div>
 
           <div class="mb-3">
             <label for="address2">Home Address</label>
-            <input type="text" class="form-control" name="homeAddress" id="adrs" readonly>
+            <input type="text" class="form-control" name="homeAddress" value="<?php echo $homeAddress?>" id="adrs" readonly>
           </div>
 
           <div class="row">
             <div class="col-md-4 mb-3">
               <label for="Home Phone">Home phone</label>
-              <input type="text" class="form-control" name="homePhone" id="homephone" readonly>
+              <input type="text" class="form-control" name="homePhone" value="<?php echo $homePhone?>" id="homephone" readonly>
             </div>
             <div class="col-md-4 mb-3">
               <label for="Work Phone">Work phone</label>
-              <input type="text" class="form-control" name="workPhone" id="workphone" readonly>
+              <input type="text" class="form-control" name="workPhone" value="<?php echo $workPhone?>" id="workphone" readonly>
             </div>
             <div class="col-md-4 mb-3">
               <label for="mobile number">Mobile phone</label>
-              <input type="text" class="form-control" name="mobilePhone" id="mobilephone" readonly>
+              <input type="text" class="form-control" name="mobilePhone" value="<?php echo $mobilePhone?>" id="mobilephone" readonly>
             </div>
           </div>    
       </div> 
       
-  <!-- exam details start here -->
-
+      <!-- Actinology Request Information -->
       <div class="col-md-6 order-md-1">
         <h4 class="mb-3">Exam Details</h4>     
           <div class="row">
@@ -149,8 +149,8 @@
             <div class="col-md-6 mb-3">
               <label for="Priority">Exam Priority</label>
               <select class="custom-select d-block w-100" name="priority" id="prior" required>
-                <option>High priority</option>
-                <option>Low priority</option>
+                <option>High Priority</option>
+                <option>Low Priority</option>
               </select>
             </div>
           </div>
@@ -174,7 +174,7 @@
             </div>
             <div class="col-md-6 mb-3">
               <label for="Date">Date</label>
-              <input type="text" class="form-control" name="eamDate" id="date" value="" disabled>
+              <input type="text" class="form-control" name="sendDate" id="date" value="<?php echo $currentTime?>" readonly>
               <div class="invalid-feedback">
                 Exam date is required.
               </div>
@@ -198,7 +198,7 @@
             </div>
             <div class="col-md-6 mb-3">
               <label for="lastName">Suggested Exam Date</label>
-              <input type="date" class="form-control" name="lastName" id="lastName" value="" required>
+              <input type="date" class="form-control" name="sugExamDate" id="lastName" required>
               <div class="invalid-feedback">
                 Suggested exam date is required.
               </div>
@@ -207,7 +207,7 @@
 
           <div class="form-group">
             <label for="comment">Exam description</label>
-            <textarea class="form-control" rows="5" name="comments" id="comment"></textarea>
+            <textarea class="form-control" rows="5" name="examDescription" id="comment"></textarea>
           </div>
       
           <hr class="mb-4">

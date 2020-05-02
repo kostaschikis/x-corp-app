@@ -1,7 +1,7 @@
 <?php
 
 
-function getActinologyRequests($doctor) {
+function getDoctorActinologyRequests($doctor) {
     $root = '../../';
 
     // DB Connection
@@ -26,3 +26,7 @@ function getActinologyRequests($doctor) {
 
     return $actRequests;
 }
+
+function getAllActinologyRequests() {} 
+
+function getRadiologistActinologyRequests() {}
