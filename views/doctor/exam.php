@@ -4,12 +4,16 @@
 
   // Includes
   include $root.'php/functions.php';
+  include $root.'php/app/PatientInfo.php';
 
   // Protect The Route
   if (!is_user_logged_in()) {
     header("Location:" . $root);  
     exit();
   }
+
+  // Array to store all patient's info
+  $patientInfo = array();
 
   if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // Get patient info from URL & cut the string to get only the ssn
@@ -18,24 +22,24 @@
     $patient_ssn = $match[1];
 
     // Query The Database to Fetch Patient's Info
-    echo $patient_ssn;
+    $patientInfo = getPatientInfo($patient_ssn);
   }
 
   // Get POST Data
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $ssn = $_POST['ssn'];
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $fatherName = $_POST['fatherName'];
-    $motherName = $_POST['motherName'];
-    $zipCode = $_POST['zipCode'];
-    $gender = $_POST['gender'];
-    $birthDay = $_POST['birthDay'];
-    $homeAddress = $_POST['homeAddress'];
-    $homePhone = $_POST['homePhone'];
-    $workPhone = $_POST['workPhone'];
-    $mobilePhone = $_POST['mobilePhone'];
+    $patientInfo['ssn'] = $_POST['ssn'];
+    $patientInfo['name'] = $_POST['firstName'];
+    $patientInfo['lastname'] = $_POST['lastName'];
+    $patientInfo['father_name'] = $_POST['fatherName'];
+    $patientInfo['mother_name'] = $_POST['motherName'];
+    $patientInfo['insurance_id'] = $_POST['insId'];
+    $patientInfo['gender'] = $_POST['gender'];
+    $patientInfo['birth_date'] = $_POST['birthDay'];
+    $patientInfo['home_address'] = $_POST['homeAddress'];
+    $patientInfo['home_number'] = $_POST['homePhone'];
+    $patientInfo['work_number'] = $_POST['workPhone'];
+    $patientInfo['mobile_number'] = $_POST['mobilePhone'];
   }
 
   // Get Current Date & Hour Timestamp
@@ -81,63 +85,63 @@
           <h4 class="mb-3">Patient's Info</h4> 
           <div class="mb-3">
             <label for="address2">SSN</label>
-            <input type="text" class="form-control" name="ssn" value="<?php echo $ssn?>" readonly> 
+            <input type="text" class="form-control" name="ssn" value="<?php echo $patientInfo['ssn']?>" readonly> 
           </div>
 
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="firstName">First name</label>
-              <input type="text" class="form-control" name="firstName" value="<?php echo $firstName?>" id="firstname" readonly>
+              <input type="text" class="form-control" name="firstName" value="<?php echo $patientInfo['name']?>" id="firstname" readonly>
             </div>
             <div class="col-md-6 mb-3">
               <label for="lastName">Last name</label>
-              <input type="text" class="form-control" name="lastName" value="<?php echo $lastName?>" id="lastname" readonly>
+              <input type="text" class="form-control" name="lastName" value="<?php echo $patientInfo['lastname']?>" id="lastname" readonly>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="firstName">Father's name</label>
-              <input type="text" class="form-control" name="fatherName" id="fathersname" value="<?php echo $fatherName?>" readonly>
+              <input type="text" class="form-control" name="fatherName" id="fathersname" value="<?php echo $patientInfo['father_name']?>" readonly>
             </div>
             <div class="col-md-6 mb-3">
               <label for="lastName">Mother's name</label>
-              <input type="text" class="form-control" name="motherName" id="mothersname" value="<?php echo $motherName?>" readonly>
+              <input type="text" class="form-control" name="motherName" id="mothersname" value="<?php echo $patientInfo['mother_name']?>" readonly>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-4 mb-3">
               <label for="username">Insurance ID</label>
-              <input type="text" class="form-control" name="zipCode" value="<?php echo $zipCode?>" id="zip" readonly>
+              <input type="text" class="form-control" name="zipCode" value="<?php echo $patientInfo['insurance_id']?>" id="zip" readonly>
             </div>
             <div class="col-md-4 mb-3">
               <label for="firstName">Gender</label>
-              <input type="text" class="form-control" name="gender" id="gender" value="<?php echo $gender?>" readonly>
+              <input type="text" class="form-control" name="gender" id="gender" value="<?php echo $patientInfo['gender']?>" readonly>
             </div>
             <div class="col-md-4 mb-3">
               <label for="lastName">Date of birth</label>
-              <input type="text" class="form-control" name="birthDay" id="birthday" value="<?php echo $birthDay?>" readonly>
+              <input type="text" class="form-control" name="birthDay" id="birthday" value="<?php echo $patientInfo['birth_date']?>" readonly>
             </div>
           </div>
 
           <div class="mb-3">
             <label for="address2">Home Address</label>
-            <input type="text" class="form-control" name="homeAddress" value="<?php echo $homeAddress?>" id="adrs" readonly>
+            <input type="text" class="form-control" name="homeAddress" value="<?php echo $patientInfo['home_address']?>" id="adrs" readonly>
           </div>
 
           <div class="row">
             <div class="col-md-4 mb-3">
               <label for="Home Phone">Home phone</label>
-              <input type="text" class="form-control" name="homePhone" value="<?php echo $homePhone?>" id="homephone" readonly>
+              <input type="text" class="form-control" name="homePhone" value="<?php echo $patientInfo['home_number']?>" id="homephone" readonly>
             </div>
             <div class="col-md-4 mb-3">
               <label for="Work Phone">Work phone</label>
-              <input type="text" class="form-control" name="workPhone" value="<?php echo $workPhone?>" id="workphone" readonly>
+              <input type="text" class="form-control" name="workPhone" value="<?php echo $patientInfo['work_number']?>" id="workphone" readonly>
             </div>
             <div class="col-md-4 mb-3">
               <label for="mobile number">Mobile phone</label>
-              <input type="text" class="form-control" name="mobilePhone" value="<?php echo $mobilePhone?>" id="mobilephone" readonly>
+              <input type="text" class="form-control" name="mobilePhone" value="<?php echo  $patientInfo['mobile_number']?>" id="mobilephone" readonly>
             </div>
           </div>    
       </div> 

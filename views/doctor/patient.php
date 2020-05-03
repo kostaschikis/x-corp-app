@@ -73,8 +73,8 @@
 
       <div class="row">
         <div class="col-md-4 mb-3">
-          <label for="username">Patient's Insurance ID</label>
-          <input type="text" class="form-control" name="zipCode" id="zip" required>
+          <label for="insuranceId">Patient's Insurance ID</label>
+          <input type="text" class="form-control" name="insId" id="insId" required>
           <div class="invalid-feedback">
             Patient's Insurance ID is required
           </div>
