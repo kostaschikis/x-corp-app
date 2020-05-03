@@ -13,7 +13,12 @@
 
   if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // Get patient info from URL & cut the string to get only the ssn
-    // getPatientsInfo($ssn)
+    $patient = $_GET['patient'];
+    preg_match('/\(([A-Za-z0-9 ]+?)\)/', $patient, $match);
+    $patient_ssn = $match[1];
+
+    // Query The Database to Fetch Patient's Info
+    echo $patient_ssn;
   }
 
   // Get POST Data

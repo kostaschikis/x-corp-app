@@ -44,10 +44,10 @@
         <form autocomplete="off" action="./exam.php" action="GET">
             <div class="form-group autocomplete">
               <label for="exampleInputEmail1">Search patient</label>
-              <input type="email" class="form-control" id="myInput" name="patient" placeholder="Patient">
+              <input type="text" class="form-control" id="myInput" name="patient" placeholder="Patient">
             </div>  
             <button type="submit" class="btn btn-primary">Go</button>
-          </form>
+        </form>
       </p>
     </div>
   </section>
@@ -55,7 +55,7 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
 <script src="<?php echo $root?>js/fetchPatients.js"></script>
 </body>
 </html>

@@ -1,9 +1,19 @@
 // AJAX call to get Patients List
-  
-var patients = ["Kostas Chikimtzis (ssn)", "George Giamouridis (ssn)"];
+root = '../../';
+var patients;
 
-/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-autocomplete(document.getElementById("myInput"), patients);
+$(function() {
+  // AJAX Function to get all Patients from patient table
+  $.ajax({
+    type: 'get',
+    url: `${root}php/app/FetchPatients.php`,
+    success: function(response) {
+      patients = response;
+      /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+      autocomplete(document.getElementById("myInput"), patients);
+    }
+  });
+});
 
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
