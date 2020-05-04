@@ -11,7 +11,7 @@ function getDoctorActinologyRequests($doctor) {
  
     $stmt = $conn->prepare
     (
-        "SELECT * FROM `actinology_requests` WHERE `doctor` = ?"
+        "SELECT * FROM `actinology_requests` WHERE `doctor` = ? ORDER BY date_sent DESC"
     );
     mysqli_stmt_bind_param($stmt, "s", $doctor);
     mysqli_stmt_execute($stmt);

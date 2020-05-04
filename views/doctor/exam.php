@@ -113,7 +113,7 @@
           <div class="row">
             <div class="col-md-4 mb-3">
               <label for="username">Insurance ID</label>
-              <input type="text" class="form-control" name="zipCode" value="<?php echo $patientInfo['insurance_id']?>" id="zip" readonly>
+              <input type="text" class="form-control" name="insId" value="<?php echo $patientInfo['insurance_id']?>" id="insId" readonly>
             </div>
             <div class="col-md-4 mb-3">
               <label for="firstName">Gender</label>
