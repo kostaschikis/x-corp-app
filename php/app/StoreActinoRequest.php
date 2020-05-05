@@ -38,14 +38,14 @@
 
     if (patientExist($ssn)) {
         storeActinoRequest($examId, $priority, $sendDate, $examType, $sugExamDate, $examDescription, $ssn, $doctor, $approval);
-        header("Location: $root/success.html");
+        header("Location: $root/views/doctor/home.php?actStored=success");
     } else {
         storePatient(
             $ssn, $firstName, $lastName, $fatherName, $motherName, $isnId, 
             $gender, $birthDay, $homeAddress, $homePhone, $workPhone, $mobilePhone
         );
         storeActinoRequest($examId, $priority, $sendDate, $examType, $sugExamDate, $examDescription, $ssn, $doctor, $approval);
-        header("Location: $root/success.html");
+        header("Location: $root/views/doctor/home.php?actStored=success");
     };
 
     function storePatient($ssn, $firstName, $lastName, $fatherName, $motherName, $isnId, $gender, $birthDay, $homeAddress, $homePhone, $workPhone, $mobilePhone) {

@@ -2,15 +2,21 @@
   session_start(); 
   $root = '../../';
 
+  // Includes
+  include $root.'php/functions.php';
+  include $root.'php/app/HomeViewRequests.php';
+
   // Protect The Route
   if (!is_user_logged_in()) {
     header("Location:" . $root);  
     exit();
   }
-  
-  function is_user_logged_in() {
-    return isset($_SESSION['name']) || isset($_COOKIE['user']);
-  }
+
+  $employee = $_SESSION['email'];
+
+  // Get All Actinology Requests
+  $actRequests = getAllActinologyRequests();
+  // print_r($actRequests);
 ?>
 <!doctype html>
 <html lang="en">
@@ -54,30 +60,34 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f</td>
-            <td>25/3/2020 10:34</td>
-            <td><span class="badge badge-pill badge-danger">High</span></td>
-            <td>Seted</td>
-            <td><a href="create_appointment.html">Create appointment</a></td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f</td>
-            <td>25/3/2020 10:34</td>
-            <td><span class="badge badge-pill badge-success">Low</span></td>
-            <td>Pending</td>
-            <td><a href="create_appointment.html">Create appointment</a></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f</td>
-            <td>25/3/2020 10:34</td>
-            <td><span class="badge badge-pill badge-danger">High</span></td>
-            <td>Seted</td>
-            <td><a href="create_appointment.html">Create appointment</a></td>
-          </tr>
+        <?php 
+          foreach ($actRequests as $key=>$value) {
+            $id = $value["id"];
+            $date = $value["date_sent"];
+            $approval = $value["approval"];
+            $priority = $value["priority"];
+
+            $badgeValue = ($priority == 'high') ? 'danger' : 'success'; 
+
+            // Formatiing
+            $approval = ($approval == 0) ? 'Pending' : 'Completed';
+            ucfirst($priority);
+            $date = formatDate($date);
+
+            $key++;
+
+            echo "
+              <tr>
+                <th scope='row'>$key</th>
+                <td>$id</td>
+                <td>$date</td>
+                <td><span class='badge badge-pill badge-$badgeValue'>$priority</span></td>
+                <td>$approval</td>
+                <td><a href='create_appointment.php?examId=$id'>Create appointment</a></td>
+              </tr>
+            ";
+          }
+        ?> 
         </tbody>
       </table>
     </main>
@@ -86,10 +96,5 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-    <script src="offcanvas.js"></script>
   </body>
 </html>

@@ -14,3 +14,8 @@ function getCurrentDate() {
     $t=time();
     return date("Y-m-d h:i:s", $t);
 }
+
+function formatDate($date) {
+    $date = new DateTime($date);
+    return $date->format('d/m/Y H:i');
+}
