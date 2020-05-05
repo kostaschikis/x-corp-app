@@ -13,7 +13,9 @@ function getAvailableRadiologists() {
     if (equalExamNum($max, $radiologists)) {
         $radiologists = getAllRadiologists();
     } else {
-        $radiologists = getAvailablelRadiologists($max, $radiologists);
+        $radiologists = getAllRadiologists();
+        print_r($radiologists);
+        // $radiologists = getAvailablelRadiologists($max, $radiologists);
     };
 
     return $radiologists;
@@ -55,7 +57,7 @@ function getAllRadiologists() {
 
     $stmt = $conn->prepare
     ( 
-        "SELECT `name`, `last_name`, `email` 
+        "SELECT `name`, `last_name`, `email`, `appointments` 
          FROM `radiologist`"
     );
     mysqli_stmt_execute($stmt);
@@ -67,8 +69,9 @@ function getAllRadiologists() {
             $name = $row['name'];
             $lastName = $row['last_name'];
             $email = $row['email'];
+            $apps = ($row['appointments'] == null) ? null : json_decode($row['appointments']); 
 
-            $radiologist = $name . ' ' . $lastName . ' ' . '(' . $email . ')';
+            $radiologist = $name . ' ' . $lastName . ' ' . '(' . $email . ')' . ' - ' . 'Exam(s) to do: ' . count($apps);
             array_push($radiologists, $radiologist); 
         }
     }

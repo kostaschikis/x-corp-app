@@ -25,7 +25,7 @@
 
   // Fetch Available Radiologist
   $radiologists = getAvailableRadiologists();
-  print_r($radiologists);
+  // print_r($radiologists);
   // print_r($actinoRequest);
 
 ?>
