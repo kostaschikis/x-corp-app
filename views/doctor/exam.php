@@ -67,7 +67,7 @@
     <a class="navbar-brand">typos idrimetos (kliniki/nosokomio....)</a>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Logout</a>
+        <a class="nav-link" href="<?php echo $root?>php/Auth/logout.php">Logout</a>
       </li>
     </ul>
   </nav>

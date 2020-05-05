@@ -51,7 +51,7 @@
         <?php 
           foreach ($actRequests as $req) {
             $id = $req["id"];
-            $priority = $req["priority"];
+            $date = $req["date_sent"];
             $approval = $req["approval"];
 
             $approval = ($approval == 0) ? 'Pending' : 'Completed';
@@ -59,10 +59,10 @@
             echo "
               <li class='list-group-item d-flex justify-content-between lh-condensed'>
                 <div>
-                  <h6 class='my-0'>Application Id: $id</h6>
+                  <h6 class='my-0'>Exam Id: $id</h6>
                   <span class='badge badge-pill badge-success'>$approval</span>
                 </div>
-                <span class='text-muted'>$priority Priority</span>
+                <span class='text-muted'>Date Sent: $date </span>
               </li>
             ";
           }
