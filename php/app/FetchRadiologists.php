@@ -6,33 +6,34 @@ function getAvailableRadiologists() {
     // DB Connection
     require $root.'php/config.php';
     
-    $radiologists = getRadiologistAndExamNum();
+    $radiologists = getAllRadiologistAndExamNum();
+    // print_r($radiologists);
 
-    $max = $radiologists[0]['totalcount'];
-
+    $max = findMax($radiologists);
+  
     if (equalExamNum($max, $radiologists)) {
         $radiologists = getAllRadiologists();
     } else {
-        $radiologists = getAllRadiologists();
+        // $radiologists = getAllRadiologists();
+        $radiologists = getAvailablelRadiologists($max, $radiologists);
         print_r($radiologists);
-        // $radiologists = getAvailablelRadiologists($max, $radiologists);
     };
 
     return $radiologists;
 }
 
-function getRadiologistAndExamNum() {
+function getAllRadiologistAndExamNum() {
     $root = '../../';
 
     // DB Connection
     require $root.'php/config.php';
 
+    $radiologists = array();
+
     $stmt = $conn->prepare
     ( 
-        "SELECT `radiologist`, count(radiologist) as totalcount 
-         FROM `appointment`
-         GROUP BY `radiologist` 
-         ORDER BY `totalcount` DESC" 
+        "SELECT `name`, `last_name`, `email`, `appointments` 
+         FROM `radiologist`"
     );
     mysqli_stmt_execute($stmt);
 
@@ -40,7 +41,16 @@ function getRadiologistAndExamNum() {
 
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            $radiologists[] = $row;
+            
+            $radiologist = array();
+            $radiologist['name'] = $row['name'];   
+            $radiologist['last_name'] = $row['last_name'];
+            $radiologist['email'] = $row['email'];
+            $radiologist['appointments'] = $row['appointments'];
+            $appsNum = count(json_decode($row['appointments'])); 
+            $radiologist['apps_number'] = $appsNum;
+
+            array_push($radiologists, $radiologist);
         }
     }
     
@@ -75,42 +85,24 @@ function getAllRadiologists() {
             array_push($radiologists, $radiologist); 
         }
     }
-    
+
     return $radiologists;
 } 
 
 function getAvailablelRadiologists($max, $radiologists) {
-    $root = '../../';
-
-    // DB Connection
-    require $root.'php/config.php';
-
     $radiologistsFinal = array();
 
     foreach($radiologists as $radiologist) {
-        if ($radiologist['totalcount'] < $max) {
-            $stmt = $conn->prepare
-            ( 
-                "SELECT `name`, `last_name`
-                 FROM `radiologist` WHERE `email` = ?"
-            );
-            mysqli_stmt_bind_param($stmt, "s", $radiologist['radiologist']);
-            mysqli_stmt_execute($stmt);
-    
-            $result = mysqli_stmt_get_result($stmt);
-        
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $name = $row['name'];
-                    $lastName = $row['last_name'];
-                    $email = $radiologist['radiologist'];
-                    $appoints = $radiologist['totalcount'];
-        
-                    $radiologist = $name . ' ' . $lastName . ' ' . '(' . $email . ')' . ' ' . $appoints . ' - ' . 'Exam(s) to do';
-                    array_push($radiologistsFinal, $radiologist); 
-                }
-            }
-        }
+        if ($radiologist['apps_number'] < $max) {
+
+            $name = $radiologist['name'];
+            $lastName = $radiologist['last_name'];
+            $email = $radiologist['email'];
+            $appsNumber = $radiologist['apps_number'];
+
+            $radiologist = $name . ' ' . $lastName . ' ' . '(' . $email . ')' . ' - ' . 'Exam(s) to do: ' . $appsNumber;
+            array_push($radiologistsFinal, $radiologist); 
+        }   
     }
 
     return $radiologistsFinal;
@@ -118,9 +110,17 @@ function getAvailablelRadiologists($max, $radiologists) {
 
 function equalExamNum($max, $radiologists) {
     foreach ($radiologists as $key=>$value) {
-        if ($value['totalcount'] != $max) {
+        if ($value['apps_number'] != $max) {
             return false;
         } 
     }
     return true;
+}
+
+function findMax($radiologists) {
+    $max = 0;
+    foreach ($radiologists as $radiologist) {
+        if ($radiologist['apps_number'] > $max) $max = $radiologist['apps_number'];
+    }
+    return $max;
 }
