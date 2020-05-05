@@ -11,12 +11,8 @@
     header("Location:" . $root);  
     exit();
   }
-
-  $employee = $_SESSION['email'];
-
   // Get All Actinology Requests
   $actRequests = getAllActinologyRequests();
-  // print_r($actRequests);
 ?>
 <!doctype html>
 <html lang="en">

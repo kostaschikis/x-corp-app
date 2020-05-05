@@ -1,3 +1,34 @@
+<?php 
+  session_start(); 
+  $root = '../../';
+
+  // Includes
+  include $root.'php/functions.php';
+  include $root.'php/app/HomeViewRequests.php';
+  include $root.'php/app/FetchRadiologists.php';
+
+  // Protect The Route
+  if (!is_user_logged_in()) {
+    header("Location:" . $root);  
+    exit();
+  }
+  
+  $radiologists = array();
+
+  // Get Actinology Request Details
+  $examId = $_GET['examId'];
+  $actinoRequest = getActinologyRequestsById($examId);
+
+  // Format Suggested Date
+  $suggestedDate = new DateTime($actinoRequest['suggested_date']);
+  $suggestedDate = $suggestedDate->format('d/m/Y');
+
+  // Fetch Available Radiologist
+  $radiologists = getAvailableRadiologists();
+
+  print_r($actinoRequest);
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -31,8 +62,9 @@
       <div class="col-md-4 order-md-2 mb-4">
         <div class="card" style="width: 18rem;">
           <div class="card-body">
-            <h5 class="card-title">George Giamouridis</h5>
-            <p class="card-text">#ID</p>
+            <h5 class="card-title"><?php echo $actinoRequest['patient_info'] ?></h5>
+            <p class="card-text"><?php echo $examId ?></p>
+            <p class="card-text"> Suggested Date: <?php echo $suggestedDate ?></p>
           </div>
         </div>
       </div>

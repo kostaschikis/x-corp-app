@@ -66,7 +66,9 @@
             $date = $req["date_sent"];
             $approval = $req["approval"];
 
+            // Formations
             $approval = ($approval == 0) ? 'Pending' : 'Completed';
+            $date = formatDate($date);
 
             echo "
               <li class='list-group-item d-flex justify-content-between lh-condensed'>

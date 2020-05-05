@@ -31,6 +31,7 @@ SELECT `request_id` FROM appointment WHERE appointment.id = `$appointmentId`
 SELECT `actinologist`, count(actinologist) as totalcount FROM appointment GROUP BY `actinologist` ORDER BY `totalcount` DESC
 MAX = arr[1]
 
+ -- 2. Deside Query
 function deside_query() {
     foreach(actinologist in actinologists) {
         if (actinologist[i] != max) {
