@@ -73,15 +73,16 @@
             $key++;
 
             echo "
-              <tr>
-                <th scope='row'>$key</th>
-                <td>$id</td>
-                <td>$date</td>
-                <td><span class='badge badge-pill badge-$badgeValue'>$priority</span></td>
-                <td>$approval</td>
-                <td><a href='create_appointment.php?examId=$id'>Create appointment</a></td>
-              </tr>
-            ";
+                  <tr>
+                    <th scope='row'>$key</th>
+                    <td>$id</td>
+                    <td>$date</td>
+                    <td><span class='badge badge-pill badge-$badgeValue'>$priority</span></td>
+                    <td>$approval</td>";
+                    if ($approval == 'Pending') {
+                      echo "<td><a href='create_appointment.php?examId=$id'>Create appointment</a></td>";
+                    }
+            echo  "</tr>";
           }
         ?> 
         </tbody>
