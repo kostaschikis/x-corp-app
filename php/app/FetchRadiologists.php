@@ -7,8 +7,7 @@ function getAvailableRadiologists() {
     require $root.'php/config.php';
     
     $radiologists = getAllRadiologistAndExamNum();
-    // print_r($radiologists);
-
+ 
     $max = findMax($radiologists);
     $availableRadiologists = array();
 
@@ -54,38 +53,6 @@ function getAllRadiologistAndExamNum() {
     
     return $radiologists;
 }
-
-function getAllRadiologists() {
-    $root = '../../';
-
-    // DB Connection
-    require $root.'php/config.php';
-
-    $radiologists = array();
-
-    $stmt = $conn->prepare
-    ( 
-        "SELECT `name`, `last_name`, `email`, `appointments` 
-         FROM `radiologist`"
-    );
-    mysqli_stmt_execute($stmt);
-
-    $result = mysqli_stmt_get_result($stmt);
-
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $name = $row['name'];
-            $lastName = $row['last_name'];
-            $email = $row['email'];
-            $apps = ($row['appointments'] == null) ? null : json_decode($row['appointments']); 
-
-            $radiologist = $name . ' ' . $lastName . ' ' . '(' . $email . ')' . ' - ' . 'Exam(s) to do: ' . count($apps);
-            array_push($radiologists, $radiologist); 
-        }
-    }
-
-    return $radiologists;
-} 
 
 function getRightRadiologists($max, $radiologists) {
     $radiologistsFinal = array();

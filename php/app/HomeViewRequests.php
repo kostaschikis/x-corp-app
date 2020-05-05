@@ -96,4 +96,4 @@ function getActinologyRequestsById($examId) {
     return $actRequest;
 } 
 
-function getRadiologistActinologyRequests() {}
+function getRadiologistAppointments() {}
