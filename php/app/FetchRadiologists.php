@@ -10,16 +10,15 @@ function getAvailableRadiologists() {
     // print_r($radiologists);
 
     $max = findMax($radiologists);
-  
+    $availableRadiologists = array();
+
     if (equalExamNum($max, $radiologists)) {
-        $radiologists = getAllRadiologists();
+        $availableRadiologists = formatRadiologists($radiologists);
     } else {
-        // $radiologists = getAllRadiologists();
-        $radiologists = getAvailablelRadiologists($max, $radiologists);
-        print_r($radiologists);
+        $availableRadiologists = getRightRadiologists($max, $radiologists);
     };
 
-    return $radiologists;
+    return $availableRadiologists;
 }
 
 function getAllRadiologistAndExamNum() {
@@ -47,9 +46,8 @@ function getAllRadiologistAndExamNum() {
             $radiologist['last_name'] = $row['last_name'];
             $radiologist['email'] = $row['email'];
             $radiologist['appointments'] = $row['appointments'];
-            $appsNum = count(json_decode($row['appointments'])); 
+            $appsNum = ($radiologist['appointments'] == null ? 0 : count(json_decode($row['appointments'])));
             $radiologist['apps_number'] = $appsNum;
-
             array_push($radiologists, $radiologist);
         }
     }
@@ -89,7 +87,7 @@ function getAllRadiologists() {
     return $radiologists;
 } 
 
-function getAvailablelRadiologists($max, $radiologists) {
+function getRightRadiologists($max, $radiologists) {
     $radiologistsFinal = array();
 
     foreach($radiologists as $radiologist) {
@@ -104,7 +102,22 @@ function getAvailablelRadiologists($max, $radiologists) {
             array_push($radiologistsFinal, $radiologist); 
         }   
     }
+    return $radiologistsFinal;
+}
 
+function formatRadiologists($radiologists) {
+    $radiologistsFinal = array();
+
+    foreach($radiologists as $radiologist) {
+        
+        $name = $radiologist['name'];
+        $lastName = $radiologist['last_name'];
+        $email = $radiologist['email'];
+        $appsNumber = $radiologist['apps_number'];
+
+        $radiologist = $name . ' ' . $lastName . ' ' . '(' . $email . ')' . ' - ' . 'Exam(s) to do: ' . $appsNumber;
+        array_push($radiologistsFinal, $radiologist); 
+    }   
     return $radiologistsFinal;
 }
 

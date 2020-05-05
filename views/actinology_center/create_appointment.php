@@ -25,7 +25,7 @@
 
   // Fetch Available Radiologist
   $radiologists = getAvailableRadiologists();
-  // print_r($radiologists);
+  print_r($radiologists);
   // print_r($actinoRequest);
 
 ?>
@@ -71,7 +71,7 @@
       <!-- Make an Application -->
       <div class="col-md-8 order-md-1">
         <h4 class="mb-3">New Application</h4>
-        <form class="needs-validation" novalidate>
+        <form class="needs-validation" action="<?php echo $root?>php/app/StoreAppointment.php" method="POST" novalidate>
 
           <div class="row">
             <div class="col-md-6 mb-3">
@@ -98,12 +98,12 @@
           <!-- Available Actinologists -->
           <div class="form-group">
             <label for="doctor">Available Actinologists</label>
-            <select class="form-control" name="availableDoctor" id="doctor">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <select class="form-control" name="available-radiologist" id="radiologist">
+              <?php
+                foreach($radiologists as $radiologist) {
+                  echo "<option>$radiologist</option>";
+                } 
+              ?>
             </select>
           </div>
 
@@ -136,6 +136,5 @@
       ================================================== -->
       <!-- Placed at the end of the document so the pages load faster -->
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     </body>
     </html>
