@@ -30,7 +30,7 @@
     <a class="navbar-brand" href="actinologist.html">Radiologist Pannel</a>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Logout</a>
+        <a class="nav-link" href="<?php echo $root?>php/Auth/logout.php">Logout</a>
       </li>
     </ul>
   </nav>

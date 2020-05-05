@@ -25,8 +25,8 @@
 
   // Fetch Available Radiologist
   $radiologists = getAvailableRadiologists();
-
-  print_r($actinoRequest);
+  print_r($radiologists);
+  // print_r($actinoRequest);
 
 ?>
 <!doctype html>
@@ -47,7 +47,7 @@
     <a class="navbar-brand">typos idrimetos (kliniki/nosokomio....)</a>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Logout</a>
+        <a class="nav-link" href="<?php echo $root?>php/Auth/logout.php">Logout</a>
       </li>
     </ul>
   </nav>
