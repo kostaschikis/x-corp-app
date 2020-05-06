@@ -60,30 +60,11 @@ function getDoctorActinologyRequests(string $doctor): array {
                     $actRequest['completed'] = $row2['completed'];
                 }
             }       
-
             array_push($actRequests, $actRequest);
-
         }
     }
 
-    // foreach($actRequests as $actRequest) {
-    //     $stmt = $conn->prepare
-    //     (
-    //         "SELECT `completed` FROM `appointment` WHERE `request_id` = ?"
-    //     );
-    //     mysqli_stmt_bind_param($stmt, "s", $actRequest['id']);
-    //     mysqli_stmt_execute($stmt);
-    
-    //     $result = mysqli_stmt_get_result($stmt);
-    
-    //     if (mysqli_num_rows($result) > 0) {
-    //         while ($row = mysqli_fetch_assoc($result)) {
-    //             $actRequest['completed'] = $row['completed'];
-    //         }
-    //     }       
-    // }
-
-    print_r($actRequests);
+    // print_r($actRequests);
 
     return $actRequests;
 }

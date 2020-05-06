@@ -67,15 +67,18 @@
             $approval = $req["approval"];
 
             // Formations
-            $approval = ($approval == 0) ? 'Pending' : 'Completed';
-            $badgeValue = ($approval == 'Pending') ? 'danger' : 'success'; 
+            $approval = ($approval == 0) ? 'Pending' : 'Set';
+            $completion = ($req['completed'] == 0) ? 'Waiting' : 'Completed';
+            $badgeValue1 = ($approval == 'Pending') ? 'danger' : 'success'; 
+            $badgeValue2 = ($completion == 'Waiting') ? 'danger' : 'success'; 
             $date = formatDate($date);
 
             echo "
               <li class='list-group-item d-flex justify-content-between lh-condensed'>
                 <div>
                   <h6 class='my-0'>Exam Id: $id</h6>
-                  <span class='badge badge-pill badge-$badgeValue'>$approval</span>
+                  <span class='badge badge-pill badge-$badgeValue1'>$approval</span>
+                  <span class='badge badge-pill badge-$badgeValue2'>$completion</span>
                 </div>
                 <span class='text-muted'>Date Sent: $date </span>
               </li>
