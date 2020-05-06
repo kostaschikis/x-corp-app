@@ -72,6 +72,37 @@ function getRightRadiologists(int $max, array $radiologists): array {
     return $radiologistsFinal;
 }
 
+function getRadiologistById(string $email): array {
+    $root = '../../';
+
+    // DB Connection
+    require $root.'php/config.php';
+
+    $radiologist = array();
+
+    $stmt = $conn->prepare
+    ( 
+        "SELECT `name`, `last_name`, `appointments` 
+         FROM `radiologist`
+         WHERE `email` = ?"
+    );
+    mysqli_stmt_bind_param($stmt, 's', $email);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            
+            $radiologist['name'] = $row['name'];   
+            $radiologist['last_name'] = $row['last_name'];
+            $radiologist['appointments'] = $row['appointments'];
+        }
+    }
+    
+    return $radiologist;
+}
+
 function formatRadiologists(array $radiologists): array {
     $radiologistsFinal = array();
 
