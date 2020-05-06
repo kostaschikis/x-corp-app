@@ -1,7 +1,7 @@
 <?php
 
 
-function getPatientInfo($ssn) {
+function getPatientInfo(string $ssn): array {
     $root = '../../';
 
     // DB Connection

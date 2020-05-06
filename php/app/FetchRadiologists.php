@@ -20,7 +20,7 @@ function getAvailableRadiologists() {
     return $availableRadiologists;
 }
 
-function getAllRadiologistAndExamNum() {
+function getAllRadiologistAndExamNum(): array {
     $root = '../../';
 
     // DB Connection
@@ -54,7 +54,7 @@ function getAllRadiologistAndExamNum() {
     return $radiologists;
 }
 
-function getRightRadiologists($max, $radiologists) {
+function getRightRadiologists(int $max, array $radiologists): array {
     $radiologistsFinal = array();
 
     foreach($radiologists as $radiologist) {
@@ -72,7 +72,7 @@ function getRightRadiologists($max, $radiologists) {
     return $radiologistsFinal;
 }
 
-function formatRadiologists($radiologists) {
+function formatRadiologists(array $radiologists): array {
     $radiologistsFinal = array();
 
     foreach($radiologists as $radiologist) {
@@ -88,7 +88,7 @@ function formatRadiologists($radiologists) {
     return $radiologistsFinal;
 }
 
-function equalExamNum($max, $radiologists) {
+function equalExamNum(int $max, array $radiologists): bool {
     foreach ($radiologists as $key=>$value) {
         if ($value['apps_number'] != $max) {
             return false;
@@ -97,7 +97,7 @@ function equalExamNum($max, $radiologists) {
     return true;
 }
 
-function findMax($radiologists) {
+function findMax(array $radiologists): int {
     $max = 0;
     foreach ($radiologists as $radiologist) {
         if ($radiologist['apps_number'] > $max) $max = $radiologist['apps_number'];

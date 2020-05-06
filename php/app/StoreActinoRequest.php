@@ -90,7 +90,7 @@
         if ($error) echo $error;
     }
 
-    function patientExist($ssn) {
+    function patientExist(string $ssn): bool {
         $root = '../../';
         include $root.'php/config.php';
 
