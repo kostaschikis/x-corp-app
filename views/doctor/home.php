@@ -68,13 +68,14 @@
 
             // Formations
             $approval = ($approval == 0) ? 'Pending' : 'Completed';
+            $badgeValue = ($approval == 'Pending') ? 'danger' : 'success'; 
             $date = formatDate($date);
 
             echo "
               <li class='list-group-item d-flex justify-content-between lh-condensed'>
                 <div>
                   <h6 class='my-0'>Exam Id: $id</h6>
-                  <span class='badge badge-pill badge-success'>$approval</span>
+                  <span class='badge badge-pill badge-$badgeValue'>$approval</span>
                 </div>
                 <span class='text-muted'>Date Sent: $date </span>
               </li>
