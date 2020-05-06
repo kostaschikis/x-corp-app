@@ -15,17 +15,21 @@
   
   $radiologists = array();
 
-  // Get Actinology Request Details
-  $examId = $_GET['examId'];
-  $actinoRequest = getActinologyRequestsById($examId);
+  // 1. Get Actinology Request Details
+  $reqId = $_GET['examId'];
+  $actinoRequest = getActinologyRequestsById($reqId);
+  $priority = $actinoRequest['priority'];
 
-  // Format Suggested Date
+  // 2. Format Suggested Date
   $suggestedDate = new DateTime($actinoRequest['suggested_date']);
   $suggestedDate = $suggestedDate->format('d/m/Y');
 
+  // 3. Format Patient Info to Get SSN
+  $ssn = formatPatientInfo($actinoRequest['patient_info']);
+
   // Fetch Available Radiologist
   $radiologists = getAvailableRadiologists();
-  print_r($radiologists);
+  // print_r($radiologists);
 
 ?>
 <!doctype html>
@@ -62,7 +66,7 @@
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title"><?php echo $actinoRequest['patient_info'] ?></h5>
-            <p class="card-text"><?php echo $examId ?></p>
+            <p class="card-text"><?php echo $reqId ?></p>
             <p class="card-text"> Suggested Date: <?php echo $suggestedDate ?></p>
           </div>
         </div>
@@ -70,7 +74,12 @@
       <!-- Make an Application -->
       <div class="col-md-8 order-md-1">
         <h4 class="mb-3">New Application</h4>
-        <form class="needs-validation" action="<?php echo $root?>php/app/StoreAppointment.php" method="POST" novalidate>
+        <form 
+          class="needs-validation" 
+          action="<?php echo $root.'php/app/StoreAppointment.php?reqId='.$reqId.'&ssn='.$ssn.'&priority='.$priority?>" 
+          method="POST" 
+          novalidate
+        >
 
           <div class="row">
             <div class="col-md-6 mb-3">

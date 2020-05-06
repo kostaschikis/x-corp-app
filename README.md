@@ -3,4 +3,4 @@
 1. Place "name" attribute @ form fields | DONE
 2. Split Patient Form and Actinology Request Form @ Doctor's View | DONE
 3. Success Page | DONE
-4. Talk about the appointment allocation algorithm 
+4. Appointment must have specified hour

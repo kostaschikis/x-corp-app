@@ -19,3 +19,8 @@ function formatDate($date) {
     $date = new DateTime($date);
     return $date->format('d/m/Y H:i');
 }
+
+function formatPatientInfo($patientInfo) {
+    preg_match('#\((.*?)\)#', $patientInfo, $match);
+    return $match[1];
+}
