@@ -37,6 +37,18 @@
       </ul>
     </nav>
 
+    <?php 
+        if ( isset($_GET['appStored']) && $_GET['appStored'] == 'success') {  
+          echo '
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Appointment Set Successfully</strong>.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>';
+        } 
+    ?>    
+
     <main role="main" class="container">
       <div class="py-5 text-center">
         <h2>Logged-in as <?php echo $_SESSION['name'] ?></h2>
@@ -66,7 +78,7 @@
             $badgeValue = ($priority == 'high') ? 'danger' : 'success'; 
 
             // Formatiing
-            $approval = ($approval == 0) ? 'Pending' : 'Completed';
+            $approval = ($approval == 0) ? 'Pending' : 'Set';
             ucfirst($priority);
             $date = formatDate($date);
 
@@ -93,5 +105,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
 </html>

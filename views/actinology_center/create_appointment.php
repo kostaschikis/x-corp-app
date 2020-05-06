@@ -19,7 +19,7 @@
   $reqId = $_GET['examId'];
   $actinoRequest = getActinologyRequestsById($reqId);
   $priority = $actinoRequest['priority'];
-
+  
   // 2. Format Suggested Date
   $suggestedDate = new DateTime($actinoRequest['suggested_date']);
   $suggestedDate = $suggestedDate->format('d/m/Y');
@@ -63,11 +63,13 @@
     <!-- Patient's Info -->
     <div class="row">
       <div class="col-md-4 order-md-2 mb-4">
+        <h4>Exam Info</h4>
         <div class="card" style="width: 18rem;">
           <div class="card-body">
-            <h5 class="card-title"><?php echo $actinoRequest['patient_info'] ?></h5>
-            <p class="card-text"><?php echo $reqId ?></p>
+            <h5 class="card-title">Patient: <?php echo $actinoRequest['patient_info'] ?></h5>
+            <p class="card-text">Exam Id: <?php echo $reqId ?></p>
             <p class="card-text"> Suggested Date: <?php echo $suggestedDate ?></p>
+            <p class="card-text"> Priority: <?php echo $actinoRequest['priority'] ?></p>
           </div>
         </div>
       </div>
@@ -96,7 +98,7 @@
             </div>
             <div class="col-md-6 mb-3">
               <label for="Date">Exam Date</label>
-              <input type="date" class="form-control" name="examDate" id="examdate">
+              <input type="datetime-local" class="form-control" name="examDate" id="examdate">
               <div class="invalid-feedback">
                 Exam date is required.
               </div>

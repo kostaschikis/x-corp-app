@@ -1,12 +1,13 @@
 <?php 
 
-function getAvailableRadiologists() {
+function getAvailableRadiologists(): array {
     $root = '../../';
 
     // DB Connection
     require $root.'php/config.php';
     
     $radiologists = getAllRadiologistAndExamNum();
+    // print_r($radiologists);
  
     $max = findMax($radiologists);
     $availableRadiologists = array();
