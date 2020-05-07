@@ -15,10 +15,15 @@
 
   $appId = $_GET['appId'];
   $patientSSN = $_GET['ssn'];
+  $reqId = $_GET['reqId'];
 
   $patientInfo = getPatientInfo($patientSSN);
-  $appInfo = getAppointmentInfo($appId);
+  $appInfo = getAppointmentInfo($appId, $reqId);
 
+  print_r($appInfo);
+  echo '<br>';
+  print_r($patientInfo);
+  
 ?>
 <!doctype html>
 <html lang="en">
@@ -38,7 +43,7 @@
     <a class="navbar-brand" href="actinologist.html">Radiologist Pannel</a>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Logout</a>
+        <a class="nav-link" href="<?php echo $root?>php/Auth/logout.php">Logout</a>
       </li>
     </ul>
   </nav>
@@ -83,16 +88,14 @@
         <a class="btn btn-success" href="#" role="button">Complete Exam</a>
       </div>
     </div>
-
-
   </main>
 
   <!-- Bootstrap core JavaScript
 
   ================================================== -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>

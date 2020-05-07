@@ -1,5 +1,42 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Home Views Requests
+|--------------------------------------------------------------------------
+|
+| 1. getAllActinologyRequests() = Get All Actinology Requests Available
+| 2. getDoctorActinologyRequests(doctor) = Get Specified Doctor's Actinology Requests
+| 3. getActinologyRequestsById(requestId) = Get The Actinology Request With Sepcified ID
+| 4. getRadiologistAppointments(radiologist) = Get Specified Radiologist's Appointments
+|
+*/
+
+function getAllActinologyRequests(): array {
+    $root = '../../';
+
+    // DB Connection
+    require $root.'php/config.php';
+
+    $actRequests = array();
+ 
+    $stmt = $conn->prepare
+    (
+        "SELECT * FROM `actinology_requests` ORDER BY date_sent DESC"
+    );
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $actRequests[] = $row;
+        }
+    }
+    $stmt->close();
+    
+    return $actRequests;
+} 
 
 function getDoctorActinologyRequests(string $doctor): array {
     $root = '../../';
@@ -64,36 +101,13 @@ function getDoctorActinologyRequests(string $doctor): array {
             array_push($actRequests, $actRequest);
         }
     }
-    // print_r($actRequests);
+    $stmt1->close();
+    $stmt2->close();
+
     return $actRequests;
 }
 
-function getAllActinologyRequests(): array {
-    $root = '../../';
-
-    // DB Connection
-    require $root.'php/config.php';
-
-    $actRequests = array();
- 
-    $stmt = $conn->prepare
-    (
-        "SELECT * FROM `actinology_requests` ORDER BY date_sent DESC"
-    );
-    mysqli_stmt_execute($stmt);
-
-    $result = mysqli_stmt_get_result($stmt);
-
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $actRequests[] = $row;
-        }
-    }
-
-    return $actRequests;
-} 
-
-function getActinologyRequestsById(string $examId): array {
+function getActinologyRequestsById(string $requestId): array {
     $root = '../../';
 
     // DB Connection
@@ -104,7 +118,7 @@ function getActinologyRequestsById(string $examId): array {
     // 1. Get Actinology Request Info
     $stmt = $conn->prepare
     ( "SELECT * FROM `actinology_requests` WHERE `id` = ?" );
-    mysqli_stmt_bind_param($stmt, "s", $examId);
+    mysqli_stmt_bind_param($stmt, "s", $requestId);
     mysqli_stmt_execute($stmt);
 
     $result = mysqli_stmt_get_result($stmt);
@@ -116,23 +130,25 @@ function getActinologyRequestsById(string $examId): array {
     }
 
     // 2. Get Patient Name
-    $stmt = $conn->prepare
+    $stmt2 = $conn->prepare
     ( "SELECT `ssn`, `name`, `lastname` FROM `patient` WHERE `ssn` = ?" );
-    mysqli_stmt_bind_param($stmt, "s", $actRequest['patient_ssn']);
-    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_param($stmt2, "s", $actRequest['patient_ssn']);
+    mysqli_stmt_execute($stmt2);
     
-    $result = mysqli_stmt_get_result($stmt);
+    $result = mysqli_stmt_get_result($stmt2);
     
     if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $ssn = $row['ssn'];
-            $name = $row['name'];
-            $lastname = $row['lastname'];
+        while ($row2 = mysqli_fetch_assoc($result)) {
+            $ssn = $row2['ssn'];
+            $name = $row2['name'];
+            $lastname = $row2['lastname'];
     
             $patient = $name . ' ' . $lastname . ' ' . '(' . $ssn . ')';
             $actRequest['patient_info'] = $patient;
         }
     }
+    $stmt->close();
+    $stmt2->close();
 
     return $actRequest;
 } 
@@ -157,6 +173,7 @@ function getRadiologistAppointments(string $radiologist): array {
             $actRequests[] = $row;
         }
     }
-    print_r($actRequests);
+    $stmt->close();
+
     return $actRequests;
 }

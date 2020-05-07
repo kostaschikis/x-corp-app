@@ -1,11 +1,7 @@
 <?php 
 
 function getAvailableRadiologists(): array {
-    $root = '../../';
-
-    // DB Connection
-    require $root.'php/config.php';
-    
+ 
     $radiologists = getAllRadiologistAndExamNum();
     // print_r($radiologists);
  
@@ -51,7 +47,8 @@ function getAllRadiologistAndExamNum(): array {
             array_push($radiologists, $radiologist);
         }
     }
-    
+    $stmt->close();
+
     return $radiologists;
 }
 
@@ -100,6 +97,7 @@ function getRadiologistById(string $email): array {
             $radiologist['appointments'] = $row['appointments'];
         }
     }
+    $stmt->close();
     
     return $radiologist;
 }

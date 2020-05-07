@@ -30,7 +30,6 @@
 
   // Fetch Available Radiologist
   $radiologists = getAvailableRadiologists();
-  // print_r($radiologists);
 
 ?>
 <!doctype html>

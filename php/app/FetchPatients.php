@@ -24,6 +24,7 @@ if (mysqli_num_rows($result) > 0) {
         array_push($patients, $patient);
     }
 }
+$stmt->close();
 
 // Transform '$patient' array to json and send it
 header('Content-Type: application/json');

@@ -15,6 +15,7 @@
   $radiologist = $_SESSION['email'];
 
   $appointments = getRadiologistAppointments($radiologist);
+  print_r($appointments);
 
 ?>
 <!doctype html>
@@ -60,6 +61,7 @@
           $appId = $appointment['id'];
           $date = $appointment['exam_date'];
           $ssn = $appointment['patient_ssn'];
+          $reqId = $appointment['request_id'];
 
           // Formating
           $date = formatDate($date);
@@ -71,7 +73,7 @@
               <th scope='row'>$key</th>
               <td>$appId</td>
               <td>$date</td>
-              <td><a href='details.php?appId=$appId&ssn=$ssn'>See Details</a></td>
+              <td><a href='details.php?appId=$appId&ssn=$ssn&reqId=$reqId'>See Details</a></td>
             </tr>  
           ";
         }

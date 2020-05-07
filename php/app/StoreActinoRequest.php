@@ -8,7 +8,7 @@
     // Get POST Data
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        // Patient's Info
+        // Patient's Info !!!!!NEEDS REFACTORING TO ARRAY!!!!!
         $ssn = $_POST['ssn'];
         $firstName = $_POST['firstName'];
         $lastName = $_POST['lastName'];
@@ -36,6 +36,7 @@
         $approval = 0;
     }
 
+    // Store Actinolgy Request Simple Algorithm
     if (patientExist($ssn)) {
         storeActinoRequest($examId, $priority, $sendDate, $examType, $sugExamDate, $examDescription, $ssn, $doctor, $approval);
         header("Location: $root/views/doctor/home.php?actStored=success");
@@ -97,6 +98,7 @@
         $stmt = $conn->prepare( "SELECT `name` FROM `patient` WHERE `ssn` = $ssn" );
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
-        
+        $stmt->close();
+
         return (mysqli_num_rows($result) > 0 ? true : false);  
     }
