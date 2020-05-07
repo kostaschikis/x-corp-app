@@ -137,4 +137,26 @@ function getActinologyRequestsById(string $examId): array {
     return $actRequest;
 } 
 
-function getRadiologistAppointments() {}
+function getRadiologistAppointments(string $radiologist): array {
+    $root = '../../';
+
+    // DB Connection
+    require $root.'php/config.php';
+
+    $actRequests = array();
+
+    $stmt = $conn->prepare
+    ( "SELECT * FROM `appointment` WHERE `radiologist` = ?" );
+    mysqli_stmt_bind_param($stmt, "s", $radiologist);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $actRequests[] = $row;
+        }
+    }
+    print_r($actRequests);
+    return $actRequests;
+}

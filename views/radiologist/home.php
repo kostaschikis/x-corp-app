@@ -2,15 +2,20 @@
   session_start(); 
   $root = '../../';
 
+  // Includes
+  include $root.'php/functions.php';
+  include $root.'php/app/HomeViewRequests.php';
+  
   // Protect The Route
   if (!is_user_logged_in()) {
     header("Location:" . $root);  
     exit();
   }
-  
-  function is_user_logged_in() {
-    return isset($_SESSION['name']) || isset($_COOKIE['user']);
-  }
+
+  $radiologist = $_SESSION['email'];
+
+  $appointments = getRadiologistAppointments($radiologist);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -50,18 +55,26 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f</td>
-          <td>25/3/2020 10:34</td>
-          <td><a href="details.html">See details</a></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f</td>
-          <td>25/3/2020 10:34</td>
-          <td><a href="details.html">See details</a></td>
-        </tr>
+      <?php 
+        foreach ($appointments as $key=>$appointment) {
+          $appId = $appointment['id'];
+          $date = $appointment['exam_date'];
+
+          // Formating
+          $date = formatDate($date);
+
+          $key++;
+
+          echo "
+            <tr>
+              <th scope='row'>$key</th>
+              <td>$appId</td>
+              <td>$date</td>
+              <td><a href='details.php?appId=$appId'>See Details</a></td>
+            </tr>  
+          ";
+        }
+      ?>  
         <tr>
           <th scope="row">3</th>
           <td>d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f</td>

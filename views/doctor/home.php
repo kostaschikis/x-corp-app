@@ -15,7 +15,7 @@
   $doctor = $_SESSION['email'];
 
   // Get Current Doctor's Actinology Requests
-  $actRequests = getDoctorActinologyRequests($doctor);
+  $actRequests = getRadiologistAppointments($doctor);
   // print_r($actRequests);
 ?>
 <!doctype html>
@@ -79,7 +79,7 @@
                 <div>
                   <h6 class='my-0'>Exam Id: $id</h6>
                   <span class='badge badge-pill badge-$badgeValue1'>Appointment: $approval</span>
-                  <span class='badge badge-pill badge-$badgeValue2'>Completion: $completion</span>
+                  <span class='badge badge-pill badge-$badgeValue2'>Exam Progress: $completion</span>
                 </div>
                 <span class='text-muted'>Date Sent: $date </span>
               </li>

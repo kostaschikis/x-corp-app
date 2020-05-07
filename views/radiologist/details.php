@@ -34,7 +34,7 @@
         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Exam Details</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Examp Completion</a>
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Exam Completion</a>
       </li>
     </ul>
     <div class="tab-content" id="myTabContent"><br>
@@ -58,7 +58,7 @@
         <label for="firstName">Description:</label><br>
       </div>
       <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <a class="btn btn-success" href="#" role="button">Complete Example</a>
+        <a class="btn btn-success" href="#" role="button">Complete Exam</a>
       </div>
     </div>
 

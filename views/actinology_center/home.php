@@ -38,15 +38,15 @@
     </nav>
 
     <?php 
-        if ( isset($_GET['appStored']) && $_GET['appStored'] == 'success') {  
-          echo '
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Appointment Set Successfully</strong>.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-          </div>';
-        } 
+      if ( isset($_GET['appStored']) && $_GET['appStored'] == 'success') {  
+        echo '
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Appointment Set Successfully</strong>.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>';
+      } 
     ?>    
 
     <main role="main" class="container">
@@ -78,7 +78,7 @@
 
             $badgeValue = ($priority == 'high') ? 'danger' : 'success'; 
 
-            // Formatiing
+            // Formating
             $approval = ($approval == 0) ? 'Pending' : 'Set';
             ucfirst($priority);
             $date = formatDate($date);
