@@ -1,3 +1,25 @@
+<?php
+  session_start(); 
+  $root = '../../';
+
+  // Includes
+  include $root.'php/functions.php';
+  include $root.'php/app/FetchAppointmentInfo.php';
+  include $root.'php/app/PatientInfo.php';
+
+  // Protect The Route
+  if (!is_user_logged_in()) {
+    header("Location:" . $root);  
+    exit();
+  }
+
+  $appId = $_GET['appId'];
+  $patientSSN = $_GET['ssn'];
+
+  $patientInfo = getPatientInfo($patientSSN);
+  $appInfo = getAppointmentInfo($appId);
+
+?>
 <!doctype html>
 <html lang="en">
 <head>

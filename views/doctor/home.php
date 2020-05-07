@@ -15,7 +15,7 @@
   $doctor = $_SESSION['email'];
 
   // Get Current Doctor's Actinology Requests
-  $actRequests = getRadiologistAppointments($doctor);
+  $actRequests = getDoctorActinologyRequests($doctor);
   // print_r($actRequests);
 ?>
 <!doctype html>
