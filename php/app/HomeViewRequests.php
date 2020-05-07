@@ -45,12 +45,13 @@ function getDoctorActinologyRequests(string $doctor): array {
             $actRequest['approval'] = $row['approval'];
 
             // print_r($actRequest);
-            
+
+            $id = $actRequest['id'];
             $stmt2 = $conn->prepare
             (
                 "SELECT `completed` FROM `appointment` WHERE `request_id` = ?"
             );
-            mysqli_stmt_bind_param($stmt2, "s", $actRequest['id']);
+            mysqli_stmt_bind_param($stmt2, "s", $id);
             mysqli_stmt_execute($stmt2);
         
             $result2 = mysqli_stmt_get_result($stmt2);
@@ -63,9 +64,7 @@ function getDoctorActinologyRequests(string $doctor): array {
             array_push($actRequests, $actRequest);
         }
     }
-
     // print_r($actRequests);
-
     return $actRequests;
 }
 

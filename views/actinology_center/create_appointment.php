@@ -19,6 +19,7 @@
   $reqId = $_GET['examId'];
   $actinoRequest = getActinologyRequestsById($reqId);
   $priority = $actinoRequest['priority'];
+  $priorityColor = ($priority == 'high') ? 'danger' : 'success'; 
   
   // 2. Format Suggested Date
   $suggestedDate = new DateTime($actinoRequest['suggested_date']);
@@ -69,7 +70,7 @@
             <h5 class="card-title">Patient: <?php echo $actinoRequest['patient_info'] ?></h5>
             <p class="card-text">Exam Id: <?php echo $reqId ?></p>
             <p class="card-text"> Suggested Date: <?php echo $suggestedDate ?></p>
-            <p class="card-text"> Priority: <?php echo $actinoRequest['priority'] ?></p>
+            <p class="card-text text-<?php echo $priorityColor?>" > Priority: <?php echo $actinoRequest['priority'] ?>
           </div>
         </div>
       </div>

@@ -64,6 +64,7 @@
             <th scope="col">Received</th>
             <th scope="col">Priority</th>
             <th scope="col">Status</th>
+            <!-- <th scope="col">Exam Progress</th> -->
             <th scope="col">Actions</th>
           </tr>
         </thead>
