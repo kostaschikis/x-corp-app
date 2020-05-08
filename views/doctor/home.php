@@ -60,33 +60,50 @@
         <a class="btn btn-primary" href="./select-action.php" role="button">New Exam</a>
       </div>
 
-      <ul class="list-group mb-3">
+
+
+      <table class="table">
+        <thead>
+          <tr>            
+            <th scope="col">Exam ID</th>
+            <th scope="col">Appointment Status</th>
+            <th scope="col">Exam Status</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Date Sent</th>            
+          </tr>
+        </thead>
+        <tbody>
         <?php 
           foreach ($actRequests as $req) {
             $id = $req["id"];
             $date = $req["date_sent"];
             $approval = $req["approval"];
+            $priority = $req["priority"];
+
+            
 
             // Formations
             $approval = ($approval == 0) ? 'Pending' : 'Set';
+            $badgeValue = ($priority == 'high') ? 'danger' : 'success'; 
             $completion = ($req['completed'] == 0) ? 'Waiting' : 'Completed';
             $badgeValue1 = ($approval == 'Pending') ? 'danger' : 'success'; 
             $badgeValue2 = ($completion == 'Waiting') ? 'danger' : 'success'; 
-            $date = formatDate($date);
+            $date = formatDate($date);           
 
             echo "
-              <li class='list-group-item d-flex justify-content-between lh-condensed'>
-                <div>
-                  <h6 class='my-0'>Exam Id: $id</h6>
-                  <span class='badge badge-pill badge-$badgeValue1'>Appointment: $approval</span>
-                  <span class='badge badge-pill badge-$badgeValue2'>Exam Progress: $completion</span>
-                </div>
-                <span class='text-muted'>Date Sent: $date </span>
-              </li>
-            ";
+                  <tr>                   
+                    <td>$id</td>
+                    <td><span class='badge badge-pill badge-$badgeValue1'>$approval</span></td>
+                    <td><span class='badge badge-pill badge-$badgeValue2'>$completion</span></td>
+                    <td><span class='badge badge-pill badge-$badgeValue'>$priority</span></td>
+                    <td>$date</td>
+                    ";
+                    
+            echo  "</tr>";
           }
-        ?>
-      </ul>
+        ?> 
+        </tbody>
+      </table>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
