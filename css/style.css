@@ -31,6 +31,7 @@ input[type=submit] {
     top: 100%;
     left: 0;
     right: 0;
+    
 }
 
 .autocomplete-items div {
@@ -38,6 +39,7 @@ input[type=submit] {
     cursor: pointer;
     background-color: #fff; 
     border-bottom: 1px solid #d4d4d4; 
+    text-align: left ; /*must be importnant*/
 }
 
 /*when hovering an item:*/
