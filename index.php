@@ -7,7 +7,7 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="css/style.css">
   <title>X Corp - Home</title>
   <style>
     form {
@@ -41,42 +41,57 @@
     }
   ?>
 
-  <div class="py-5 text-center">
-    <img src="img/logo.png" alt="Smiley face" height="130" width="130"><br><br>
-    <h2>Welcome to X CORP</h2>
-    <p class="lead">Here you can login to your account</p>
-  </div>
+  <div class=".container-fluid">
+    <div class="container">
+      <div class="py-5 text-center">
+        <img src="img/logo.png" alt="Smiley face" height="130" width="130"><br><br>
+        <h2>Welcome to X CORP</h2>
+        <p class="lead">Here you can login to your account</p>
+      </div>  
 
-  <form class="w-25 p-3" action="./php/Auth/login.php" method="POST">
-    <!-- Select Your Specialty -->
-    <div class="form-group">
-      <label for="inputAddress2">Select your specialty</label>
-      <select id="inputState" name="specialty" class="form-control" onclick="myFunction()">
-        <option disabled selected>Choose your specialty</option>
-        <option>Doctor</option>
-        <option>Radiology Center Staff</option>
-        <option>Radiologist</option>
-      </select>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img/docs.jpg" alt="Avatar" style="width:100%">            
+          </div>
+          <div class="flip-card-back">
+          <form action="./php/Auth/login.php" method="POST">
+            <!-- Select Your Specialty -->
+            <label for="exampleFormControlSelect1">Select your Specialty</label>
+            <div class="form-group">      
+              <select id="inputState" name="specialty" class="form-control" onclick="myFunction()">
+                <option disabled selected>Specialty</option>
+                <option>Doctor</option>
+                <option>Radiology Center Staff</option>
+                <option>Radiologist</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <h3 id="demo"></h3>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" name="email" class="form-control" id="inputAddress" placeholder="Email">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input type="password" name="password" class="form-control" id="inputAddress" placeholder="Password">
+              </div>
+            </div>
+            
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary w-100">Login</button><br><br>
+            <!-- Forgot My Password -->
+            <a href="#" class="d-flex justify-content-center">I forgot my password</a>
+            <div class="form-group d-flex justify-content-center">
+              <p>If you dont have an account, create one <a href="register.php">here</a>.</p>
+            </div>
+          </form>
+      </div>
     </div>
-    <div class="form-group">
-      <h3 id="demo"></h3>
-    </div>
-    <!-- Email -->
-    <div class="form-group">
-      <input type="email" name="email" class="form-control" id="inputAddress" placeholder="Email">
-    </div>
-    <!-- Password -->
-    <div class="form-group">
-      <input type="password" name="password" class="form-control" id="inputAddress" placeholder="Password">
-    </div>
-    <!-- Submit -->
-    <button type="submit" class="btn btn-primary w-100">Login</button><br><br>
-    <!-- Forgot My Password -->
-    <a href="#" class="d-flex justify-content-center">I forgot my password</a>
-    <div class="form-group d-flex justify-content-center">
-      <p>If you dont have an account, create one <a href="register.php">here</a>.</p>
-    </div>
-  </form>
+  </div>
 
   <script>
     function myFunction() {
