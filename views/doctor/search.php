@@ -34,23 +34,25 @@
       </li>
     </ul>
   </nav>
-  
-  <div class="py-5 text-center">
+
+
+  <div class=".container-fluid text-center">
+    <div class="container">
+      <div class="py-5 text-center">
      
-    <h2>Exam Details</h2>
-  </div>
-  <section class="jumbotron text-center">
-    <div class="container">      
-        <form autocomplete="off" action="./exam.php" action="GET">
-            <div class="form-group autocomplete">
+        <h2>Exam Details</h2>
+        <p class="lead">Search for an existing patient.</p>           
+      </div>
+
+      <form autocomplete="off" action="./exam.php" action="GET">
+            <div class="form-group autocomplete w-100">
               <label for="exampleInputEmail1">Search patient</label>
-              <input type="text" class="form-control" id="myInput" name="patient" placeholder="Patient">
+              <input type="text" class="form-control" id="myInput" name="patient" placeholder="Patient's name">
             </div>  
-            <button type="submit" class="btn btn-primary">Go</button>
+            <button type="submit" class="btn btn-primary">Search</button>
         </form>
-      </p>
     </div>
-  </section>
+  </div>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
