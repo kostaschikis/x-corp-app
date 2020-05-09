@@ -40,7 +40,7 @@
 <body class="bg-light">
 
   <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="actinologist.html">Radiologist Pannel</a>
+    <a class="navbar-brand" href="home.php">Radiologist Pannel</a>
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="<?php echo $root?>php/Auth/logout.php">Logout</a>

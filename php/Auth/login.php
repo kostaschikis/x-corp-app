@@ -44,11 +44,13 @@ function login_user($email, $password, $table, $conn) {
 
                 /** Start a session and store some data about the user
                  * @param name 
+                 * @param email
                  * @param logstatus
                  */
                 session_start();
                 $_SESSION["name"] = $row['name'];
                 $_SESSION["email"] = $row['email'];
+                $_SESSION["speciality"] = $table;
                 $_SESSION["logStatus"] = true;
                 redirectUser($table);
                 // header("Location: ../../index.php?login=success");

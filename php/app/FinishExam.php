@@ -1,6 +1,7 @@
 <?php 
 session_start(); 
-$root = '../..';
+$root = '../../';
+$altroot = '../..';
 
 // Includes
 include $root.'php/functions.php';
@@ -13,7 +14,7 @@ if (!is_user_logged_in()) {
 
 trait FinishExam {
 
-    private static function setExamCompletion(string $appId) {
+    public static function setExamCompletion(string $appId) {
         
         $root = '../../';
         include $root.'php/config.php';
@@ -32,4 +33,4 @@ trait FinishExam {
 }
 
 FinishExam::setExamCompletion($_GET['appId']);
-header("Location: $root/views/radiologist/success.php");
+header("Location: $altroot/views/radiologist/success.php");

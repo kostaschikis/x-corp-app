@@ -186,8 +186,8 @@ function getRadiologistAppointments(string $radiologist): array {
                 $appointments[] = $row;
             }
         }
+        $stmt->close();
     }
-    $stmt->close();
 
     return $appointments;
 }
