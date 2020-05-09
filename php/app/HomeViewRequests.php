@@ -160,20 +160,34 @@ function getRadiologistAppointments(string $radiologist): array {
     require $root.'php/config.php';
 
     $actRequests = array();
+    $appointments = array();
 
-    $stmt = $conn->prepare
-    ( "SELECT * FROM `appointment` WHERE `radiologist` = ?" );
-    mysqli_stmt_bind_param($stmt, "s", $radiologist);
-    mysqli_stmt_execute($stmt);
+    // Get Appointments Array
+    $query = "SELECT `appointments` FROM `radiologist` WHERE `email` = ?"; 
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $radiologist);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows === 0) exit('No rows');
+    while ($row = $result->fetch_assoc()) {
+        $actRequests = $row;
+    }
+    $actRequests = json_decode($actRequests['appointments']);
+    $stmt->close();
 
-    $result = mysqli_stmt_get_result($stmt);
-
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $actRequests[] = $row;
+    // Fetch Info For Each Appointment
+    foreach ($actRequests as $actRequest) {
+        $stmt = $conn->prepare( "SELECT * FROM `appointment` WHERE `id` = ?" );
+        $stmt->bind_param("s", $actRequest);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $appointments[] = $row;
+            }
         }
     }
     $stmt->close();
 
-    return $actRequests;
+    return $appointments;
 }

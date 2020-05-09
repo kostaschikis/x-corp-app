@@ -15,9 +15,10 @@ if (isset($_GET['appId']) && isset($_GET['radioEmail'])) {
     deleteRadiologistAppointment($_GET['appId']);
 }
 
+
 // Remove appointment from radiologist's appointments array
 function deleteRadiologistAppointment(string $appId) {
-
+    
 }
 
 function deleteActinologyRequest(string $reqId) {
