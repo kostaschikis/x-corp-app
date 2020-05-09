@@ -13,7 +13,7 @@ if (!is_user_logged_in()) {
 
 trait FinishExam {
 
-    public function setExamCompletion(string $appId) {
+    private static function setExamCompletion(string $appId) {
         
         $root = '../../';
         include $root.'php/config.php';

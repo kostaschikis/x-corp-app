@@ -11,15 +11,12 @@ if (!is_user_logged_in()) {
   exit();
 }
 
-if (isset($_GET['appId'])) {
-    deleteAppointment($_GET['appId']);
+if (isset($_GET['appId']) && isset($_GET['radioEmail'])) {
+    deleteRadiologistAppointment($_GET['appId']);
 }
 
-if (isset($_GET['reqId'])) {
-    deleteActinologyRequest($_GET['reqId']);
-}
-
-function deleteAppointment(string $appId) {
+// Remove appointment from radiologist's appointments array
+function deleteRadiologistAppointment(string $appId) {
 
 }
 

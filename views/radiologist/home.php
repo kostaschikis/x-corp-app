@@ -77,7 +77,7 @@
               <td>$appId</td>
               <td>$date</td>";
               if ($completion == 1) {
-                echo "<td><a class='text-danger' href='$altRoot/php/DeleteExam.php?appId=$appId'>Delete Appointment</a></td>";
+                echo "<td><a class='text-danger' href='$altRoot/php/DeleteExam.php?appId=$appId&radioEmail=$radiologist'>Delete Appointment</a></td>";
               } else {
                 echo "<td><a href='details.php?appId=$appId&ssn=$ssn&reqId=$reqId'>See Details</a></td>";
               }
