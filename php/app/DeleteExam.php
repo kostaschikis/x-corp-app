@@ -35,8 +35,7 @@ class DeleteExam {
         return $appointments;
     }
 
-    public static function updateAppointments(string $radiologist, array $appointments) {
-       
+    public static function updateAppointments(string $radiologist, array $appointments) {   
         // DB Connection
         require self::$root.'php/config.php';
 

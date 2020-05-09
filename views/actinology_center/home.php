@@ -64,6 +64,7 @@
             <th scope="col">Received</th>
             <th scope="col">Priority</th>
             <th scope="col">Status</th>
+            <th scope="col">Exam</th>
             <!-- <th scope="col">Exam Progress</th> -->
             <th scope="col">Actions</th>
           </tr>
@@ -75,8 +76,11 @@
             $date = $value["date_sent"];
             $approval = $value["approval"];
             $priority = $value["priority"];
+            $completed = $value["completed"];
 
             $badgeValue = ($priority == 'high') ? 'danger' : 'success'; 
+            $completion = ($completed == 0) ? 'Waiting' : 'Completed';
+            $textValue = ($completed == 0) ? 'danger' : 'success';
 
             // Formating
             $approval = ($approval == 0) ? 'Pending' : 'Set';
@@ -91,9 +95,12 @@
                     <td>$id</td>
                     <td>$date</td>
                     <td><span class='badge badge-pill badge-$badgeValue'>$priority</span></td>
-                    <td>$approval</td>";
+                    <td>$approval</td>
+                    <td>$completion</td>";
                     if ($approval == 'Pending') {
                       echo "<td><a href='create_appointment.php?examId=$id'>Create appointment</a></td>";
+                    } else if ($completed == 1) {
+                      echo "<td><a class='text-danger' href='../../php/app/DeleteExam.php?reqId=$id'>Delete appointment</a></td>";
                     }
             echo  "</tr>";
           }

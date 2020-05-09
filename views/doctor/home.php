@@ -80,7 +80,7 @@
             $approval = $req["approval"];
             $priority = $req["priority"];
 
-            // Formations
+            // Formating
             $approval = ($approval == 0) ? 'Pending' : 'Set';
             $badgeValue = ($priority == 'high') ? 'danger' : 'success'; 
             $completion = ($req['completed'] == 0) ? 'Waiting' : 'Completed';
