@@ -18,12 +18,9 @@ function getAllActinologyRequests(): array {
     // DB Connection
     require $root.'php/config.php';
 
+    // Get Actinology Requests
     $actRequests = array();
- 
-    $stmt = $conn->prepare
-    (
-        "SELECT * FROM `actinology_requests` ORDER BY date_sent DESC"
-    );
+    $stmt = $conn->prepare("SELECT * FROM `actinology_requests` ORDER BY date_sent DESC");
     mysqli_stmt_execute($stmt);
 
     $result = mysqli_stmt_get_result($stmt);
@@ -34,8 +31,28 @@ function getAllActinologyRequests(): array {
         }
     }
     $stmt->close();
+
+    // For Each Actinology Request Get Completion Status
+    $actRequestsFinal = array();
+    foreach ($actRequests as $actRequest) {
+        $stmt = $conn->prepare("SELECT `completed` FROM `appointment` WHERE `request_id` = ?");
+        $stmt->bind_param("s", $actRequest["id"]);
+        $stmt->execute();        
+        $result = $stmt->get_result();
     
-    return $actRequests;
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $actRequest['completed'] = $row['completed'];
+                array_push($actRequestsFinal, $actRequest);
+            }
+        } else {
+            $actRequest['completed'] = 0;
+            array_push($actRequestsFinal, $actRequest);
+        }
+        $stmt->close();        
+    }
+    
+    return $actRequestsFinal;
 } 
 
 function getDoctorActinologyRequests(string $doctor): array {
