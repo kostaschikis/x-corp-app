@@ -97,6 +97,8 @@ function getDoctorActinologyRequests(string $doctor): array {
                 while ($row2 = mysqli_fetch_assoc($result2)) {
                     $actRequest['completed'] = $row2['completed'];
                 }
+            } else {
+                $actRequest['completed'] = 1;
             }       
             array_push($actRequests, $actRequest);
         }

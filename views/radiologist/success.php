@@ -1,3 +1,6 @@
+<?php 
+  $root = '../../';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,10 +16,10 @@
 <body class="bg-light">
 
   <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="actinologist.html">Radiologist Pannel</a>
+    <a class="navbar-brand" href="home.php">Radiologist Pannel</a>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Logout</a>
+        <a class="nav-link" href="<?php echo $root.'php/Auth/logout.php'?>">Logout</a>
       </li>
     </ul>
   </nav>
@@ -25,7 +28,7 @@
       <div class="card-body">
         <h5 class="card-title">Success</h5>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go home</a>
+        <a href="home.php" class="btn btn-primary">Go home</a>
       </div>
     </div>
   </main>

@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 function storeAppointment(array $data): bool {
     $root = '../../';
-    include $root.'/php/config.php';
+    include $root.'php/config.php';
 
     $error = '';
 
@@ -74,7 +74,7 @@ function storeAppointment(array $data): bool {
 
 function updateRadiologistAppointments(string $email, array $appointments): bool {
     $root = '../../';
-    include $root.'/php/config.php';
+    include $root.'php/config.php';
 
     $appointments = json_encode($appointments);
 
@@ -100,7 +100,7 @@ function updateRadiologistAppointments(string $email, array $appointments): bool
 
 function updateRequestApproval(string $reqId): bool {
     $root = '../../';
-    include $root.'/php/config.php';
+    include $root.'php/config.php';
 
     $query = 'UPDATE `actinology_requests` SET `approval` = 1 WHERE `id` = ?';
     $stmt = mysqli_stmt_init($conn);

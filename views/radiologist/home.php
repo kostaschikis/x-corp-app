@@ -56,12 +56,15 @@
         </tr>
       </thead>
       <tbody>
-      <?php 
+      <?php
+        $altRoot = '../..';
+
         foreach ($appointments as $key=>$appointment) {
           $appId = $appointment['id'];
           $date = $appointment['exam_date'];
           $ssn = $appointment['patient_ssn'];
           $reqId = $appointment['request_id'];
+          $completion = $appointment['completed'];
 
           // Formating
           $date = formatDate($date);
@@ -72,10 +75,13 @@
             <tr>
               <th scope='row'>$key</th>
               <td>$appId</td>
-              <td>$date</td>
-              <td><a href='details.php?appId=$appId&ssn=$ssn&reqId=$reqId'>See Details</a></td>
-            </tr>  
-          ";
+              <td>$date</td>";
+              if ($completion == 1) {
+                echo "<td><a class='text-danger' href='$altRoot/php/DeleteExam.php?appId=$appId'>Delete Appointment</a></td>";
+              } else {
+                echo "<td><a href='details.php?appId=$appId&ssn=$ssn&reqId=$reqId'>See Details</a></td>";
+              }
+          echo "</tr>";    
         }
       ?>  
         <tr>
