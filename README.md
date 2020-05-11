@@ -6,4 +6,5 @@
 4. Appointment must have specified hour | DONE
 5. Doctor Cards & Radiology Center Home => for each exam must have "approved", "completed" column
 6. Refactor 'StoreActinoRequest.php'
-7. Radiologist Home Screen must havve appointment status
+7. Radiologist Home Screen must have appointment status
+8. Actinology Types

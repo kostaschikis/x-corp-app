@@ -1,17 +1,4 @@
 <?php 
-session_start(); 
-$root = '../../';
-$altroot = '../..';
-
-// Includes
-include $root.'php/functions.php';
-
-// Protect The Route
-if (!is_user_logged_in()) {
-  header("Location:" . $root);  
-  exit();
-}
-
 trait FinishExam {
 
     public static function setExamCompletion(string $appId) {
@@ -31,6 +18,3 @@ trait FinishExam {
         $stmt->close();
     }
 }
-
-FinishExam::setExamCompletion($_GET['appId']);
-header("Location: $altroot/views/radiologist/success.php");

@@ -12,6 +12,7 @@ if (!is_user_logged_in()) {
 }
 
 class DeleteExam {
+
     static $root = '../../';
 
     public static function getAppointments(string $radiologist):array {
@@ -84,6 +85,8 @@ if ( (isset($_GET['reqId'])) && ($_SESSION['speciality'] == 'actinology_center')
 function deleteRadiologistAppointment(string $appId, string $radiologist) {
     $altroot = '../..';
 
+    include $altroot.'/php/app/FinishExam.php';
+
     // 1. Get Appointments Array
     $appointments = DeleteExam::getAppointments($radiologist);
     
@@ -92,6 +95,7 @@ function deleteRadiologistAppointment(string $appId, string $radiologist) {
 
     // 3. Update Comlumn
     DeleteExam::updateAppointments($radiologist, $appointments);
+    FinishExam::setExamCompletion($_GET['appId']);
 
     header("Location: $altroot/views/radiologist/home.php?deleteApp=success");
 }

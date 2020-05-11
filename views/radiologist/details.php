@@ -87,7 +87,7 @@
       <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
         <?php
           $altRoot = '../..';
-          echo "<a class='btn btn-success' href='$altRoot/php/app/FinishExam.php?appId=$appId' role='button'>Complete Exam</a>"?>
+          echo "<a class='btn btn-success' href='$altRoot/php/app/DeleteExam.php?appId=$appId' role='button'>Complete Exam</a>"?>
       </div>
     </div>
   </main>
