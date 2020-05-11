@@ -14,8 +14,8 @@
   }
 
   $appId = $_GET['appId'];
-  $patientSSN = $_GET['ssn'];
   $reqId = $_GET['reqId'];
+  $patientSSN = $_GET['ssn'];
 
   $patientInfo = getPatientInfo($patientSSN);
   $appInfo = getAppointmentInfo($appId, $reqId);
@@ -66,30 +66,33 @@
     </ul>
     <div class="tab-content" id="myTabContent"><br>
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <label for="firstName">National Security Number:</label><br>
-        <label for="firstName">First Name:</label><br>
-        <label for="firstName">Last Name:</label><br>
-        <label for="firstName">Father's Name:</label><br>
-        <label for="firstName">Mother's Name</label><br>
-        <label for="firstName">Insurance ID:</label><br>
-        <label for="firstName">Gender:</label><br>
-        <label for="firstName">Birthday:</label><br>
-        <label for="firstName">Address:</label><br>
-        <label for="firstName">Home Phone:</label><br>
-        <label for="firstName">Work Phone:</label><br>
-        <label for="firstName">Mobile Phone:</label><br>
+        <label for="firstName">National Security Number: <?php echo $patientInfo['ssn'] ?></label><br>
+        <label for="firstName">First Name: <?php echo $patientInfo['name'] ?></label><br>
+        <label for="firstName">Last Name: <?php echo $patientInfo['lastname'] ?></label><br>
+        <label for="firstName">Father's Name: <?php echo $patientInfo['father_name'] ?></label><br>
+        <label for="firstName">Mother's Name <?php echo $patientInfo['mother_name'] ?></label><br>
+        <label for="firstName">Insurance ID: <?php echo $patientInfo['insurance_id'] ?></label><br>
+        <label for="firstName">Gender: <?php echo $patientInfo['gender'] ?></label><br>
+        <label for="firstName">Birthday: <?php echo $patientInfo['birth_date'] ?></label><br>
+        <label for="firstName">Address: <?php echo $patientInfo['home_address'] ?></label><br>
+        <label for="firstName">Home Phone: <?php echo $patientInfo['home_number'] ?></label><br>
+        <label for="firstName">Work Phone: <?php echo $patientInfo['work_number'] ?></label><br>
+        <label for="firstName">Mobile Phone: <?php echo $patientInfo['mobile_number'] ?></label><br>
       </div>
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <label for="firstName">Exam ID:</label><br>
-        <label for="firstName">Examination Type:</label><br>
+        <label for="firstName">Exam ID: <?php echo $appInfo['examId'] ?></label><br>
+        <label for="firstName">Examination Type: <?php echo $appInfo['examType'] ?></label><br>
         <!-- Comments & Description Section - Make A Paragraph or Textarea -->
         <label for="firstName">Comments</label><br>
         <label for="firstName">Description:</label><br>
       </div>
       <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <?php
-          $altRoot = '../..';
-          echo "<a class='btn btn-success' href='$altRoot/php/app/DeleteExam.php?appId=$appId' role='button'>Complete Exam</a>"?>
+        <form action="<?php echo $root?>php/app/DeleteExam.php" method="post">
+          <?php
+            echo "<button class='btn btn-success' role='button'>Complete Exam</button>"
+          ?>
+          <input type="hidden" name="appId" value="<?php echo $appId?>">
+        </form>
       </div>
     </div>
   </main>

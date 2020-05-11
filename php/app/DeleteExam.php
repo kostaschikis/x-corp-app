@@ -71,9 +71,11 @@ class DeleteExam {
     }
 }
 
-// Radiologist Complete Exam Request
-if ( (isset($_GET['appId'])) && ($_SESSION['speciality'] == 'radiologist') ) {
-    deleteRadiologistAppointment($_GET['appId'], $_SESSION['email']);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Radiologist Complete Exam Request
+    if ( (isset($_GET['appId'])) && ($_SESSION['speciality'] == 'radiologist') ) {
+        deleteRadiologistAppointment($_GET['appId'], $_SESSION['email']);
+    }
 }
 
 // Actinology Center Delete Exam Request
@@ -97,7 +99,7 @@ function deleteRadiologistAppointment(string $appId, string $radiologist) {
     DeleteExam::updateAppointments($radiologist, $appointments);
     FinishExam::setExamCompletion($_GET['appId']);
 
-    header("Location: $altroot/views/radiologist/home.php?deleteApp=success");
+    header("Location: $altroot/views/radiologist/success.php?deleteApp=success");
 }
 
 function deleteActinologyRequest(string $reqId) {

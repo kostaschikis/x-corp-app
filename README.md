@@ -15,3 +15,4 @@
 4. Delete Flip Card
 5. Delete 'echos' & print_r statements
 6. radiologist details -> fill inputs
+7. make actinology center request to delete appointment a post request
