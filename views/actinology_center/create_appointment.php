@@ -23,7 +23,10 @@
   
   // 2. Format Suggested Date
   $suggestedDate = new DateTime($actinoRequest['suggested_date']);
+  $suggestedDateTime = $suggestedDate->format('Y-m-d\Th:m');
   $suggestedDate = $suggestedDate->format('d/m/Y');
+
+  var_dump($suggestedDateTime);
 
   // 3. Format Patient Info to Get SSN
   $ssn = formatPatientInfo($actinoRequest['patient_info']);
@@ -98,7 +101,7 @@
             </div>
             <div class="col-md-6 mb-3">
               <label for="Date">Exam Date</label>
-              <input type="datetime-local" class="form-control" name="examDate" id="examdate">
+              <input type="datetime-local" class="form-control" name="examDate" id="examdate" value="<?php echo $suggestedDateTime ?>" min="<?php echo $suggestedDateTime ?>">
               <div class="invalid-feedback">
                 Exam date is required.
               </div>

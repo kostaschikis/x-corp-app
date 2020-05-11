@@ -82,6 +82,8 @@
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <label for="firstName">Exam ID:</label><br>
         <label for="firstName">Examination Type:</label><br>
+        <!-- Comments & Description Section - Make A Paragraph or Textarea -->
+        <label for="firstName">Comments</label><br>
         <label for="firstName">Description:</label><br>
       </div>
       <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
