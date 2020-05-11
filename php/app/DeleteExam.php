@@ -73,8 +73,8 @@ class DeleteExam {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Radiologist Complete Exam Request
-    if ( (isset($_GET['appId'])) && ($_SESSION['speciality'] == 'radiologist') ) {
-        deleteRadiologistAppointment($_GET['appId'], $_SESSION['email']);
+    if ( (isset($_POST['appId'])) && ($_SESSION['speciality'] == 'radiologist') ) {
+        deleteRadiologistAppointment($_POST['appId'], $_SESSION['email']);
     }
 }
 
@@ -97,7 +97,9 @@ function deleteRadiologistAppointment(string $appId, string $radiologist) {
 
     // 3. Update Comlumn
     DeleteExam::updateAppointments($radiologist, $appointments);
-    FinishExam::setExamCompletion($_GET['appId']);
+
+    // 4. Set Appointment Completion to True
+    FinishExam::setExamCompletion($appId);
 
     header("Location: $altroot/views/radiologist/success.php?deleteApp=success");
 }
