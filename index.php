@@ -22,12 +22,19 @@
       background-repeat: no-repeat;
       background-size: cover;
     }  
+
+    form {
+      margin: 0 auto;
+    }
+
   </style>
 </head>
 <body>
 
   <nav class="navbar navbar-dark bg-dark">
-    <a href="index.html" class="navbar-brand">X CORP</a>
+    <a href="index.html" class="navbar-brand">
+    <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    X CORP</a>
   </nav>
 
   <?php 
