@@ -20,9 +20,10 @@
   $patientInfo = getPatientInfo($patientSSN);
   $appInfo = getAppointmentInfo($appId, $reqId);
 
-  print_r($appInfo);
-  echo '<br>';
-  print_r($patientInfo);
+  /* print_r($appInfo);
+    echo '<br>';
+    print_r($patientInfo);
+  */  
   
 ?>
 <!doctype html>
@@ -83,8 +84,15 @@
         <label for="firstName">Exam ID: <?php echo $appInfo['examId'] ?></label><br>
         <label for="firstName">Examination Type: <?php echo $appInfo['examType'] ?></label><br>
         <!-- Comments & Description Section - Make A Paragraph or Textarea -->
-        <label for="firstName">Comments</label><br>
-        <label for="firstName">Description:</label><br>
+        <label for="firstName">Comments:</label>
+        <p class="border">
+          <?php echo $appInfo['comments']?>
+        </p><br>
+        <label for="firstName">Description:</label>
+        <p class="border">
+          <?php echo $appInfo['description']?>
+        </p>
+        <br>
       </div>
       <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
         <form action="<?php echo $root?>php/app/DeleteExam.php" method="post">
