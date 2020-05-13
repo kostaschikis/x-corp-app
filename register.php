@@ -10,12 +10,31 @@
 
   <title>X Corp - Register</title>
   <style>
+      body {
+        /* The image used */
+        background-image: url("./img/5.jpg");
+
+        /* Full height */
+        height: 100%; 
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     form{
       margin: 0 auto;
     }
   </style>
 </head>
 <body>
+
+<nav class="navbar navbar-dark bg-dark">
+    <a href="index.html" class="navbar-brand">
+    <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    X CORP</a>
+  </nav>
+
   <div class="py-5 text-center">
     <img src="img/logo.png" alt="Smiley face" height="130" width="130"><br><br>
     <h2>Register</h2>
@@ -60,8 +79,7 @@
         <option>Radiology Center Staff</option>
         <option>Radiologist</option>
       </select>
-    </div>
-    <hr>
+    </div>    
     <!-- Submit -->
     <button type="submit" class="btn btn-primary w-100">Sign up</button><br><br>
     <!-- Sign in  -->
