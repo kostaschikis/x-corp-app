@@ -79,8 +79,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Actinology Center Delete Exam Request
-if ( (isset($_GET['reqId'])) && ($_SESSION['speciality'] == 'actinology_center') ) {
-    deleteActinologyRequest($_GET['reqId']);
+if ( (isset($_POST['reqId'])) && ($_SESSION['speciality'] == 'actinology_center') ) {
+    deleteActinologyRequest($_POST['reqId']);
 }
 
 // Remove appointment from radiologist's appointments array

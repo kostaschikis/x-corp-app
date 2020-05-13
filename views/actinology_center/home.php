@@ -1,6 +1,7 @@
 <?php 
   session_start(); 
   $root = '../../';
+  $altroot = '../..';
 
   // Includes
   include $root.'php/functions.php';
@@ -23,6 +24,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/center.css">
 
     <title>X CORP - Radiology Center</title>
   </head>
@@ -77,7 +79,7 @@
             $approval = $value["approval"];
             $priority = $value["priority"];
             $completed = $value["completed"];
-
+            
             $badgeValue = ($priority == 'high') ? 'danger' : 'success'; 
             $completion = ($completed == 0) ? 'Waiting' : 'Completed';
             $textValue = ($completed == 0) ? 'danger' : 'success';
@@ -98,9 +100,22 @@
                     <td>$approval</td>
                     <td>$completion</td>";
                     if ($approval == 'Pending') {
-                      echo "<td><a href='create_appointment.php?examId=$id'>Create appointment</a></td>";
+                      echo "<td>
+                                <form action='create_appointment.php' method='get'>
+                                  <button id='deleteExam'> 
+                                    <a class='text-primary'>Create appointment</a>
+                                  </button>  
+                                <input type='hidden' name='examId' value='$id'>
+                            </td>";
                     } else if ($completed == 1) {
-                      echo "<td><a class='text-danger' href='../../php/app/DeleteExam.php?reqId=$id'>Delete appointment</a></td>";
+                      echo "<td>
+                              <form action='$altroot/php/app/DeleteExam.php' method='post'>
+                                <button id='deleteExam'>
+                                  <a class='text-danger'>Delete appointment</a>
+                                </button>
+                                <input type='hidden' name='reqId' value='$id'>
+                              </form>
+                            </td>";
                     }
             echo  "</tr>";
           }

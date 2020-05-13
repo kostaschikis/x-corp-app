@@ -25,8 +25,7 @@
   $suggestedDate = new DateTime($actinoRequest['suggested_date']);
   $suggestedDateTime = $suggestedDate->format('Y-m-d\Th:m');
   $suggestedDate = $suggestedDate->format('d/m/Y');
-
-  var_dump($suggestedDateTime);
+  // var_dump($suggestedDateTime);
 
   // 3. Format Patient Info to Get SSN
   $ssn = formatPatientInfo($actinoRequest['patient_info']);
@@ -50,7 +49,7 @@
 <body class="bg-light">
 
   <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand">typos idrimetos (kliniki/nosokomio....)</a>
+    <a href="home.php" class="navbar-brand">Radiology Center</a>
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="<?php echo $root?>php/Auth/logout.php">Logout</a>

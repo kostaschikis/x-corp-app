@@ -1,0 +1,9 @@
+#deleteExam {
+    border: none !important;
+    background: none;
+    padding: 0 0;
+}
+
+#deleteExam:hover {
+    border-bottom: 1px;
+}

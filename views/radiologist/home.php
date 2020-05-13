@@ -15,7 +15,7 @@
   $radiologist = $_SESSION['email'];
 
   $appointments = getRadiologistAppointments($radiologist);
-  print_r($appointments);
+  // print_r($appointments);
 
 ?>
 <!doctype html>
