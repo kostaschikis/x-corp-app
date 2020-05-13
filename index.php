@@ -12,16 +12,24 @@
   <style>
     body {
       /* The image used */
-      background-image: url("./img/2.jpg");
+      /* background-image: url("./img/2.jpg"); */
 
       /* Full height */
-      height: 100%; 
+      /* height: 100%;  */
 
       /* Center and scale the image nicely */
-      background-position: center;
-      background-repeat: no-repeat;
+      /* background-position: center; */
+      /* background-repeat: no-repeat; */
+      /* background-size: cover; */
+    } 
+
+    body { 
+      background: url("./img/2.jpg") no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
       background-size: cover;
-    }  
+    } 
 
     form {
       margin: 0 auto;
@@ -94,10 +102,13 @@
             <!-- Submit -->
             <button type="submit" class="btn btn-primary w-100">Login</button><br><br>
             <!-- Forgot My Password -->
-            <a href="#" class="d-flex justify-content-center">I forgot my password</a>
-            <div class="form-group d-flex justify-content-center">
-              <p>If you dont have an account, create one <a href="register.php">here</a>.</p>
+            <div>
+              <a href="#" class="d-flex justify-content-center">I forgot my password</a>
+              <div class="form-group d-flex justify-content-center">
+                <p>If you dont have an account, create one <a href="register.php">here</a>.</p>
+              </div>
             </div>
+           
           </form>
           
      

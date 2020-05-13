@@ -3,5 +3,7 @@
 	session_unset();
 	session_destroy();
 	
-	header('Location: ../../index.php?logout=success');
+	$root = '../..';
+
+	header("Location: $root/index.php?logout=success");
 ?>
