@@ -10,9 +10,18 @@
   <link rel="stylesheet" href="css/style.css">
   <title>X Corp - Home</title>
   <style>
-    form {
-      margin: 0 auto;
-    }
+    body {
+      /* The image used */
+      background-image: url("./img/2.jpg");
+
+      /* Full height */
+      height: 100%; 
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }  
   </style>
 </head>
 <body>
@@ -47,15 +56,10 @@
         <img src="img/logo.png" alt="Smiley face" height="130" width="130"><br><br>
         <h2>Welcome to X CORP</h2>
         <p class="lead">Here you can login to your account</p>
-      </div>  
-
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="img/docs.jpg" alt="Avatar" style="width:100%">            
-          </div>
-          <div class="flip-card-back">
-          <form action="./php/Auth/login.php" method="POST">
+      </div>     
+       
+          
+          <form class="w-50" action="./php/Auth/login.php" method="POST">
             <!-- Select Your Specialty -->
             <label for="exampleFormControlSelect1">Select your Specialty</label>
             <div class="form-group">      
@@ -69,7 +73,6 @@
             <div class="form-group">
               <h3 id="demo"></h3>
             </div>
-
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputEmail4">Email</label>
@@ -89,7 +92,8 @@
               <p>If you dont have an account, create one <a href="register.php">here</a>.</p>
             </div>
           </form>
-      </div>
+          
+     
     </div>
   </div>
 
