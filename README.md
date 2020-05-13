@@ -8,11 +8,11 @@
 
 ## Final To-dos | May 2020
 
-- [] Refactor 'StoreActinoRequest.php'
-- [] Actinology Types
-- [] Missing Banners in 'login page', 'delete appointment'
+- [ ] Refactor 'StoreActinoRequest.php'
+- [ ] Actinology Types
+- [ ] Missing Banners in 'login page', 'delete appointment'
 - [x] Delete Flip Card
-- [] Add register to home page nav
-- [] Delete 'echos' & print_r statements
+- [ ] Add register to home page nav
+- [ ] Delete 'echos' & print_r statements
 - [x] radiologist details -> fill inputs
 - [x] make actinology center request to delete appointment a post request
