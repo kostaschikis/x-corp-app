@@ -14,4 +14,4 @@
 - [x] Delete Flip Card
 - [] Delete 'echos' & print_r statements
 - [x] radiologist details -> fill inputs
-- [] make actinology center request to delete appointment a post request
+- [x] make actinology center request to delete appointment a post request
