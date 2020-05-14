@@ -40,7 +40,7 @@
     </nav>
 
     <?php 
-      if ( isset($_GET['appStored']) && $_GET['appStored'] == 'success') {  
+      if (isset($_GET['appStored']) && $_GET['appStored'] == 'success') {  
         echo '
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           <strong>Appointment Set Successfully</strong>.
@@ -48,7 +48,15 @@
           <span aria-hidden="true">&times;</span>
           </button>
         </div>';
-      } 
+      } else if (isset($_GET['deleteReq']) && $_GET['deleteReq'] == 'success') {
+        echo '
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>Appointment Deleted Successfully</strong>.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>';
+      }
     ?>    
 
     <main role="main" class="container">

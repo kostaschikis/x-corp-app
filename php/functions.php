@@ -12,7 +12,7 @@ function transformPriority($priority) {
 function getCurrentDate() {
     date_default_timezone_set('Europe/Athens');
     $t=time();
-    return date("Y-m-d h:i:s", $t);
+    return date("d-m-Y h:i", $t);
 }
 
 function formatDate($date) {

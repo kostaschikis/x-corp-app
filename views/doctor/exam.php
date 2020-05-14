@@ -44,7 +44,7 @@
 
   // Get Current Date & Hour Timestamp
   $currentTime = getCurrentDate();
-
+  $today = date('Y-m-d');
 
 ?>
 
@@ -64,7 +64,7 @@
 <body class="bg-light">
 
   <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand">typos idrimetos (kliniki/nosokomio....)</a>
+    <a href="./home.php" class="navbar-brand">Doctor Panel</a>
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="<?php echo $root?>php/Auth/logout.php">Logout</a>
@@ -200,11 +200,13 @@
             <div class="col-md-6 mb-3">
               <label for="exam">Examination</label>
               <select class="form-control" name="examType" id="exam">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option>CT Scan</option>
+                <option>Ultrasound</option>
+                <option>MRI</option>
+                <option>Mastology</option>
+                <option>Angiography</option>
+                <option>Interventional radiology</option>
+                <option>Interventional neurology</option>
               </select>
               <div class="invalid-feedback">
                 Examintaion type is required.
@@ -212,7 +214,7 @@
             </div>
             <div class="col-md-6 mb-3">
               <label for="lastName">Suggested Exam Date</label>
-              <input type="date" class="form-control" name="sugExamDate" id="lastName" required>
+              <input type="date" min="<?php echo $today?>" class="form-control" name="sugExamDate" id="lastName" required>
               <div class="invalid-feedback">
                 Suggested exam date is required.
               </div>
