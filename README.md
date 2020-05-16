@@ -8,7 +8,7 @@
 
 ## Final To-dos | May 2020
 
-- [ ] Refactor 'StoreActinoRequest.php'
+- [x] Refactor 'StoreActinoRequest.php'
 - [ ] Delete 'echos' & print_r statements
 - [ ] Insert table row 'Patient Name' @everyHomeView
 - [x] Actinology Types
@@ -18,3 +18,7 @@
 - [x] Add register to home page nav
 - [x] radiologist details -> fill inputs
 - [x] make actinology center request to delete appointment a post request
+
+## Minor Tasks for Later 
+
+- [] Turn Banner Messages into Sessions

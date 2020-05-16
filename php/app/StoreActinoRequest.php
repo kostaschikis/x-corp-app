@@ -5,51 +5,51 @@
     include $root.'/php/config.php';
     include $root.'/php/functions.php';
 
+    $patient = array();
+    $request = array();
+
     // Get POST Data
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        // Patient's Info !!!!!NEEDS REFACTORING TO ARRAY!!!!!
-        $ssn = $_POST['ssn'];
-        $firstName = $_POST['firstName'];
-        $lastName = $_POST['lastName'];
-        $fatherName = $_POST['fatherName'];
-        $motherName = $_POST['motherName'];
-        $isnId = $_POST['insId'];
-        $gender = $_POST['gender'];
-        $birthDay = $_POST['birthDay'];
-        $homeAddress = $_POST['homeAddress'];
-        $homePhone = $_POST['homePhone'];
-        $workPhone = $_POST['workPhone'];
-        $mobilePhone = $_POST['mobilePhone'];
+        // Patient's Info 
+        $patient['ssn'] = $request['ssn'] = $_POST['ssn'];
+        $patient['firstName'] = $_POST['firstName'];
+        $patient['lastName'] = $_POST['lastName'];
+        $patient['fatherName'] = $_POST['fatherName'];
+        $patient['motherName'] = $_POST['motherName'];
+        $patient['isnId'] = $_POST['insId'];
+        $patient['gender'] = $_POST['gender'];
+        $patient['birthDay'] = $_POST['birthDay'];
+        $patient['homeAddress'] = $_POST['homeAddress'];
+        $patient['homePhone'] = $_POST['homePhone'];
+        $patient['workPhone'] = $_POST['workPhone'];
+        $patient['mobilePhone'] = $_POST['mobilePhone'];
 
         // Actinology Request Info
-        $nsn = $_POST['nsn'];
-        $priority = transformPriority($_POST['priority']); 
-        $examId = $_POST['examId'];
-        $sendDate = $_POST['sendDate'];
-        $examType = $_POST['examType'];
-        $sugExamDate = $_POST['sugExamDate'];
-        $examDescription = $_POST['examDescription'];
+        $request['nsn'] = $_POST['nsn'];
+        $request['priority'] = transformPriority($_POST['priority']); 
+        $request['examId'] = $_POST['examId'];
+        $request['sendDate'] = $_POST['sendDate'];
+        $request['examType'] = $_POST['examType'];
+        $request['sugExamDate'] = $_POST['sugExamDate'];
+        $request['examDescription'] = $_POST['examDescription'];
 
         // Extra
-        $doctor = $_SESSION['email'];
-        $approval = 0;
+        $request['doctor'] = $_SESSION['email'];
+        $request['approval'] = 0;
+    
+        // Store Actinolgy Request Simple Algorithm
+        if (patientExist($patient['ssn'])) {
+            storeActinoRequest($request);
+            header("Location: $root/views/doctor/home.php?actStored=success");
+        } else {
+            storePatient($patient);
+            storeActinoRequest($request); 
+            header("Location: $root/views/doctor/home.php?actStored=success");
+        }
     }
 
-    // Store Actinolgy Request Simple Algorithm
-    if (patientExist($ssn)) {
-        storeActinoRequest($examId, $priority, $sendDate, $examType, $sugExamDate, $examDescription, $ssn, $doctor, $approval);
-        header("Location: $root/views/doctor/home.php?actStored=success");
-    } else {
-        storePatient(
-            $ssn, $firstName, $lastName, $fatherName, $motherName, $isnId, 
-            $gender, $birthDay, $homeAddress, $homePhone, $workPhone, $mobilePhone
-        );
-        storeActinoRequest($examId, $priority, $sendDate, $examType, $sugExamDate, $examDescription, $ssn, $doctor, $approval);
-        header("Location: $root/views/doctor/home.php?actStored=success");
-    };
-
-    function storePatient($ssn, $firstName, $lastName, $fatherName, $motherName, $isnId, $gender, $birthDay, $homeAddress, $homePhone, $workPhone, $mobilePhone) {
+    function storePatient(array $info) {
         $root = '../../';
         include $root.'php/config.php';
 
@@ -62,7 +62,7 @@
         if (!mysqli_stmt_prepare($stmt, $query)) {
             head("./StoreActinoRequest?dbError=true");
         } else {
-            mysqli_stmt_bind_param($stmt, "ssssssssssss", $ssn, $firstName, $lastName, $fatherName, $motherName, $isnId, $gender, $birthDay, $homeAddress, $homePhone, $workPhone, $mobilePhone);
+            mysqli_stmt_bind_param($stmt, "ssssssssssss", $info['ssn'], $info['firstName'], $info['lastName'], $info['fatherName'], $info['motherName'], $info['isnId'], $info['gender'], $info['birthDay'], $info['homeAddress'], $info['homePhone'], $info['workPhone'], $info['mobilePhone']);
             mysqli_stmt_execute($stmt);
             $error = mysqli_stmt_error($stmt);
         }
@@ -70,7 +70,7 @@
         if ($error) echo $error;
     }
 
-    function storeActinoRequest($examId, $priority, $sendDate, $examType, $sugExamDate, $examDescription, $ssn, $doctor, $approval) {
+    function storeActinoRequest(array $info) {
         $root = '../../';
         include $root.'php/config.php';
 
@@ -83,7 +83,7 @@
         if (!mysqli_stmt_prepare($stmt, $query)) {
             head("./StoreActinoRequest?dbError=true");
         } else {
-            mysqli_stmt_bind_param($stmt, "ssssssssi", $examId, $priority, $sendDate, $examType, $sugExamDate, $examDescription, $ssn, $doctor, $approval);
+            mysqli_stmt_bind_param($stmt, "ssssssssi", $info['examId'], $info['priority'], $info['sendDate'], $info['examType'], $info['sugExamDate'], $info['examDescription'], $info['ssn'], $info['doctor'], $info['approval']);
             mysqli_stmt_execute($stmt);
             $error = mysqli_stmt_error($stmt);
         }

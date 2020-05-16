@@ -187,7 +187,7 @@
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="Date">Date</label>
+              <label for="Date">Today's Date</label>
               <input type="text" class="form-control" name="sendDate" id="date" value="<?php echo $currentTime?>" readonly>
               <div class="invalid-feedback">
                 Exam date is required.
