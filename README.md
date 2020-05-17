@@ -21,5 +21,5 @@
 
 ## Minor Tasks for Later 
 
-- [] Turn banner messages into sessions
-- [] Utilize more objective code
+- [ ] Turn banner messages into sessions
+- [ ] Utilize more objective code
