@@ -71,6 +71,7 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">ID</th>
+            <th scope="col">Patient</th>
             <th scope="col">Received</th>
             <th scope="col">Priority</th>
             <th scope="col">Status</th>
@@ -87,6 +88,7 @@
             $approval = $value["approval"];
             $priority = $value["priority"];
             $completed = $value["completed"];
+            $patient = $value['patient_info'];
             
             $badgeValue = ($priority == 'high') ? 'danger' : 'success'; 
             $completion = ($completed == 0) ? 'Waiting' : 'Completed';
@@ -103,6 +105,7 @@
                   <tr>
                     <th scope='row'>$key</th>
                     <td>$id</td>
+                    <td>$patient</td>
                     <td>$date</td>
                     <td><span class='badge badge-pill badge-$badgeValue'>$priority</span></td>
                     <td>$approval</td>

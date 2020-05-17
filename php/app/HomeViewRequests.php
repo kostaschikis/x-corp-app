@@ -17,6 +17,7 @@ function getAllActinologyRequests(): array {
 
     // DB Connection
     require $root.'php/config.php';
+    require $root.'php/app/PatientInfo.php';
 
     // Get Actinology Requests
     $actRequests = array();
@@ -32,8 +33,9 @@ function getAllActinologyRequests(): array {
     }
     $stmt->close();
 
-    // For Each Actinology Request Get Completion Status
     $actRequestsFinal = array();
+
+    // For Each Actinology Request Get Completion Status
     foreach ($actRequests as $actRequest) {
         $stmt = $conn->prepare("SELECT `completed` FROM `appointment` WHERE `request_id` = ?");
         $stmt->bind_param("s", $actRequest["id"]);
@@ -43,13 +45,15 @@ function getAllActinologyRequests(): array {
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $actRequest['completed'] = $row['completed'];
-                array_push($actRequestsFinal, $actRequest);
             }
         } else {
             $actRequest['completed'] = 0;
-            array_push($actRequestsFinal, $actRequest);
         }
         $stmt->close();        
+
+        // Get Patient Info
+        $actRequest['patient_info'] = getFormatedPatientInfo($actRequest['patient_ssn']);
+        array_push($actRequestsFinal, $actRequest);
     }
     
     return $actRequestsFinal;
