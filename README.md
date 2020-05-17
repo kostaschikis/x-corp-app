@@ -9,8 +9,8 @@
 ## Final To-dos | May 2020
 
 - [x] Refactor 'StoreActinoRequest.php'
-- [ ] Delete 'echos' & print_r statements
-- [ ] Insert table row 'Patient Name' @everyHomeView
+- [x] Delete 'echos' & print_r statements
+- [x] Insert table row 'Patient Name' @everyHomeView
 - [x] Actinology Types
 - [x] Missing Banners in 'login page', 'delete appointment'
 - [x] Delete Flip Card
@@ -21,4 +21,5 @@
 
 ## Minor Tasks for Later 
 
-- [] Turn Banner Messages into Sessions
+- [] Turn banner messages into sessions
+- [] Utilize more objective code
