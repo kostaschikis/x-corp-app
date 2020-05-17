@@ -178,6 +178,7 @@ function getRadiologistAppointments(string $radiologist): array {
 
     // DB Connection
     require $root.'php/config.php';
+    require $root.'php/app/PatientInfo.php';
 
     $actRequests = array();
     $appointments = array();
@@ -187,6 +188,8 @@ function getRadiologistAppointments(string $radiologist): array {
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $radiologist);
     $stmt->execute();
+    
+    // Get & Decode Apointments JSON
     $result = $stmt->get_result();
     if ($result->num_rows === 0) exit('No rows');
     while ($row = $result->fetch_assoc()) {
@@ -203,10 +206,13 @@ function getRadiologistAppointments(string $radiologist): array {
         $result = $stmt->get_result();
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                $appointments[] = $row;
+                $appointment = $row;
             }
         }
         $stmt->close();
+
+        $appointment['patient_info'] = getFormatedPatientInfo($appointment['patient_ssn']);
+        array_push($appointments, $appointment);
     }
 
     return $appointments;

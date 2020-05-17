@@ -16,7 +16,6 @@
 
   $appointments = getRadiologistAppointments($radiologist);
   // print_r($appointments);
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -51,6 +50,7 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">ID</th>
+          <th scope="col">Patient</th>
           <th scope="col">Exam date</th>
           <th scope="col">Actions</th>
         </tr>
@@ -65,6 +65,7 @@
           $ssn = $appointment['patient_ssn'];
           $reqId = $appointment['request_id'];
           $completion = $appointment['completed'];
+          $patient = $appointment['patient_info'];
 
           // Formating
           $date = formatDate($date);
@@ -75,6 +76,7 @@
             <tr>
               <th scope='row'>$key</th>
               <td>$appId</td>
+              <td>$patient</td>
               <td>$date</td>";
               if ($completion == 1) {
                 echo "<td><a class='text-danger' href='$altRoot/php/app/DeleteExam.php?appId=$appId&radioEmail=$radiologist'>Delete Appointment</a></td>";
