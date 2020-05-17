@@ -27,7 +27,7 @@
 <body class="bg-light">
 
   <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand">typos idrimetos (kliniki/nosokomio....)</a>
+    <a href="home.php" class="navbar-brand">Doctor Panel</a>
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="<?php echo $root?>php/Auth/logout.php">Logout</a>

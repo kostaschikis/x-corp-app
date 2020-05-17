@@ -60,6 +60,7 @@ function getDoctorActinologyRequests(string $doctor): array {
 
     // DB Connection
     require $root.'php/config.php';
+    require $root.'php/app/PatientInfo.php';
 
     $actRequests = array();
 
@@ -97,29 +98,27 @@ function getDoctorActinologyRequests(string $doctor): array {
             $actRequest['patient_ssn'] = $row['patient_ssn'];
             $actRequest['doctor'] = $row['doctor'];
             $actRequest['approval'] = $row['approval'];
-
-            // print_r($actRequest);
-
-            $id = $actRequest['id'];
-            $stmt2 = $conn->prepare
-            (
-                "SELECT `completed` FROM `appointment` WHERE `request_id` = ?"
-            );
-            mysqli_stmt_bind_param($stmt2, "s", $id);
+            
+            // 1. Get Patient Info
+            $actRequest['patient_info'] = getFormatedPatientInfo($actRequest['patient_ssn']); 
+            
+            // 2. Get Completion Status
+            $stmt2 = $conn->prepare("SELECT `completed` FROM `appointment` WHERE `request_id` = ?");
+            mysqli_stmt_bind_param($stmt2, "s", $actRequest['id']);
             mysqli_stmt_execute($stmt2);
-        
+            
             $result2 = mysqli_stmt_get_result($stmt2);
-        
+            
             if (mysqli_num_rows($result2) > 0) {
                 while ($row2 = mysqli_fetch_assoc($result2)) {
                     $actRequest['completed'] = $row2['completed'];
                 }
-            }     
+            }
+            $stmt2->close();
             array_push($actRequests, $actRequest);
         }
     }
     $stmt1->close();
-    $stmt2->close();
 
     return $actRequests;
 }

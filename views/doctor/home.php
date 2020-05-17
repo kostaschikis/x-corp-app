@@ -66,6 +66,7 @@
         <thead>
           <tr>            
             <th scope="col">Exam ID</th>
+            <th scope="col">Patient</th>
             <th scope="col">Appointment Status</th>
             <th scope="col">Exam Status</th>
             <th scope="col">Priority</th>
@@ -79,6 +80,7 @@
             $date = $req["date_sent"];
             $approval = $req["approval"];
             $priority = $req["priority"];
+            $patient = $req['patient_info'];
 
             // Formating
             $approval = ($approval == 0) ? 'Pending' : 'Set';
@@ -91,6 +93,7 @@
             echo "
                   <tr>                   
                     <td>$id</td>
+                    <td>$patient</td>
                     <td><span class='badge badge-pill badge-$badgeValue1'>$approval</span></td>
                     <td><span class='badge badge-pill badge-$badgeValue2'>$completion</span></td>
                     <td><span class='badge badge-pill badge-$badgeValue'>$priority</span></td>
