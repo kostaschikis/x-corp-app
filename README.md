@@ -19,7 +19,7 @@
 - [x] radiologist details -> fill inputs
 - [x] make actinology center request to delete appointment a post request
 
-## Minor Tasks for Later 
+## Minor Tasks for Later
 
 - [ ] Turn banner messages into sessions
 - [ ] Utilize more objective code

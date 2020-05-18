@@ -112,11 +112,9 @@
                     <td>$completion</td>";
                     if ($approval == 'Pending') {
                       echo "<td>
-                                <form action='create_appointment.php' method='get'>
-                                  <button id='deleteExam'> 
-                                    <a class='text-primary'>Create appointment</a>
-                                  </button>  
-                                <input type='hidden' name='examId' value='$id'>
+                              <button id='deleteExam'> 
+                                <a href='create_appointment.php?examId=$id' class='text-primary'>Create appointment</a>
+                              </button>  
                             </td>";
                     } else if ($completed == 1) {
                       echo "<td>
