@@ -8,8 +8,8 @@ function getAvailableRadiologists(): array {
     $max = findMax($radiologists);
     $availableRadiologists = array();
 
-    if (equalExamNum($max, $radiologists)) {
-        $availableRadiologists = formatRadiologists($radiologists);
+    if (radiologistsHaveEqualExamNum($max, $radiologists)) {
+        $availableRadiologists = getAllRadiologists($radiologists);
     } else {
         $availableRadiologists = getRightRadiologists($max, $radiologists);
     };
@@ -102,7 +102,7 @@ function getRadiologistById(string $email): array {
     return $radiologist;
 }
 
-function formatRadiologists(array $radiologists): array {
+function getAllRadiologists(array $radiologists): array {
     $radiologistsFinal = array();
 
     foreach($radiologists as $radiologist) {
@@ -118,7 +118,7 @@ function formatRadiologists(array $radiologists): array {
     return $radiologistsFinal;
 }
 
-function equalExamNum(int $max, array $radiologists): bool {
+function radiologistsHaveEqualExamNum(int $max, array $radiologists): bool {
     foreach ($radiologists as $key=>$value) {
         if ($value['apps_number'] != $max) {
             return false;
