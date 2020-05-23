@@ -12,8 +12,6 @@
     header("Location:" . $root);  
     exit();
   }
-  // Get All Actinology Requests
-  // $actRequests = getAllActinologyRequests();
 ?>
 <!doctype html>
 <html>
