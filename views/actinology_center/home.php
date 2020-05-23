@@ -132,6 +132,10 @@
         </tbody>
       </table>
     </main>
+ 
+    <!-- Sheduler -->
+    <div id="scheduler_here" class="dhx_cal_container">
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

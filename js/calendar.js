@@ -9,7 +9,7 @@ $(function() {
         success: function(response) {
           actinoRequests = response;
         }
-      })
+    })
     .done(function() {
       console.log(actinoRequests);
       // Insert code to fill calendar here...
