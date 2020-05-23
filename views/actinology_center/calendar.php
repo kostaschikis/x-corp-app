@@ -66,7 +66,7 @@
           return "completed"; 
         }; 
 
-        scheduler.init('scheduler_here', new Date(2020,4,23), "week");
+        scheduler.init('scheduler_here', new Date(), "week");
         scheduler.load("../../php/app/FetchAppointments.php");
 
 
