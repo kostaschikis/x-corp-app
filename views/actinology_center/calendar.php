@@ -17,6 +17,10 @@
 <html>
     <head>
       <title> Getting started with dhtmlxScheduler</title>
+
+      <!-- Favicon -->
+      <link rel="icon" type="image/png" href="../../img/logo.png">
+
       <meta charset="utf-8">
       <script src="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.js"></script>
       <link href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler_material.css" 

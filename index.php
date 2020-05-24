@@ -8,6 +8,10 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./img/logo.png">
+
   <title>X Corp - Home</title>
   <style>
     body { 
@@ -25,16 +29,6 @@
   </style>
 </head>
 <body>
-
-  <!-- <nav class="navbar navbar-dark bg-dark d-flex">
-    <a href="index.php" class="navbar-brand">
-    <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt=""> X CORP</a>
-    <ul class="nav-item">
-      <li class="nav-item">
-        <a class="btn btn-primary btn-sm" href="#" role="button">Register</a>
-      </li>
-    </ul>
-  </nav> -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">
     <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
