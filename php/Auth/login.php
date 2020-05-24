@@ -73,11 +73,11 @@ function redirectUser($speciality) {
     $root = '../..';
     
     if ($speciality == 'doctor') {
-        header("Location: $root/views/doctor/");
+        header("Location: $root/views/doctor/home.php");
     } else if ($speciality == 'actinology_center') {
-        header("Location: $root/views/actinology_center/");
+        header("Location: $root/views/actinology_center/home.php");
     } else if ($speciality == 'radiologist') {
-        header("Location: $root/views/radiologist/");
+        header("Location: $root/views/radiologist/home.php");
     }
 }
 
