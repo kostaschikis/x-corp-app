@@ -22,6 +22,16 @@
       background-size: cover;
     } 
 
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: transparent;
+      color: black;
+      text-align: center;
+  }
+
     form {
       margin: 0 auto;
     }
@@ -115,6 +125,10 @@
           
         </form>
     </div>
+  </div>
+
+  <div class="footer">
+    <p>   <small> Copyright © 2020 X CORP</small></p>
   </div>
 
   <!-- CDN Scripts -->
