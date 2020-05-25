@@ -128,7 +128,7 @@
   </div>
 
   <div class="footer">
-    <p>   <small> Copyright © 2020 X CORP</small></p>
+    <p><small>Copyright © 2020 X CORP</small></p>
   </div>
 
   <!-- CDN Scripts -->
