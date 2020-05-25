@@ -41,11 +41,11 @@
     <div class="container">
       <div class="py-5 text-center">
         <h2>Logged-in as <?php echo $_SESSION['name'] ?></h2>
-        <p class="lead">Select if you want to create a new patient card or a new exam for an existing patient.</p>        
+        <p class="lead">Select if you want to create a new patient card or a new exam for an existing patient</p>        
       </div>
 
       <a href="./patient.php" class="btn btn-primary my-2">Create new patient card</a>
-      <a href="./search.php" class="btn btn-secondary my-2">Find existing patient</a>
+      <a href="./search.php" class="btn btn-primary my-2">Find existing patient</a>
     </div>
   </div>
 
