@@ -95,7 +95,7 @@
                 <div class="input-group-prepend">
                   <button type="button" class="input-group-text" onclick="randomId()">#</button>
                 </div>
-                <input type="text" class="form-control" name="appointmentId" id="appId" placeholder="Press to generate an Appointment ID" required>
+                <input type="text" class="form-control" name="appointmentId" id="appId" placeholder="Press '#' to generate an ID" required>
                 <div class="invalid-feedback" style="width: 100%;">
                   Application ID is required.
                 </div>
