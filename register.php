@@ -40,8 +40,9 @@
 
   <div class="py-5 text-center">
     <img src="img/logo.png" alt="Smiley face" height="130" width="130"><br><br>
-    <h2>Register</h2>
+    <h2>Create an Account</h2>
     <p class="lead">Here you can create a new account</p>
+    <small>The creation of an account concerns exclusively health professions and employees of medical facilities.</small>
   </div>
 
   <form class="w-25 p-3" action="php/Auth/register.php" method="POST">
@@ -49,35 +50,36 @@
       <!-- First Name -->
       <div class="form-group col-md-6">
         <label for="inputEmail4">First name</label>
-        <input type="text" class="form-control" name="firstName" id="inputEmail4" placeholder="First name">
+        <input type="text" class="form-control" name="firstName" id="inputEmail4">
       </div>
       <!-- Last Name -->
       <div class="form-group col-md-6">
         <label for="inputPassword4">Last name</label>
-        <input type="text" class="form-control" name="lastName" id="inputPassword4" placeholder="Last name">
+        <input type="text" class="form-control" name="lastName" id="inputPassword4">
       </div>
     </div>
     <!-- Email -->
     <div class="form-group">
       <label for="inputAddress">Email</label>
-      <input type="email" class="form-control" name="email" id="inputAddress" placeholder="Email">
+      <input type="email" class="form-control" name="email" id="inputAddress">
     </div>
     <!-- Password -->
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Password</label>
-        <input type="password" class="form-control" name="password" id="inputEmail4" placeholder="Password">
+        <input type="password" class="form-control" name="password" id="inputEmail4">
       </div>
       <!-- Confirm Password -->
       <div class="form-group col-md-6">
-        <label for="inputPassword4">Password confirmation</label>
-        <input type="password" class="form-control" name="passwordConfirm" id="inputPassword4" placeholder="Password confirmation">
+        <label for="inputPassword4">Password Confirmation</label>
+        <input type="password" class="form-control" name="passwordConfirm" id="inputPassword4">
       </div>
     </div>
     <!-- Specialty -->
     <div class="form-group">
       <label for="inputAddress2">Specialty</label>
       <select id="inputState" name="specialty" class="form-control">
+        <option disabled selected></option>
         <option>Doctor</option>
         <option>Radiology Center Staff</option>
         <option>Radiologist</option>
@@ -87,7 +89,7 @@
     <button type="submit" class="btn btn-primary w-100">Sign up</button><br><br>
     <!-- Sign in  -->
     <div class="form-group d-flex justify-content-center">
-      <p>Already havean account? <a href="index.php">Sign In</a>.</p>
+      <p>Already have an account? <a href="index.php">Sign In</a>.</p>
     </div>
   </form>
 </body>
