@@ -45,7 +45,7 @@
   <main role="main" class="container">
     <div class="py-5 text-center">
       <h2>Logged-in as <?php echo $_SESSION['name'] ?></h2>
-      <p class="lead">Edw mporeite na deite tis eksetaseis pou exete na kanete</p>
+      <p class="lead">Track and complete exams</p>
     </div>
     <!-- Exams | To-Do -->
     <table class="table">
