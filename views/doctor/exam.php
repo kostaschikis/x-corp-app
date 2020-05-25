@@ -77,10 +77,10 @@
 
 
   <div class="container">
-    <div class="py-5 text-center">
-     
-      <h2>Exam Details</h2>
-    </div>
+  <div class="py-5 text-center">     
+     <h2>Exam Details</h2>
+     <p class="lead">Fill in the exam details</p>           
+   </div>
     
     <form class="needs-validation" action="<?php echo $root?>php/app/StoreActinoRequest.php" method="POST" novalidate>
       <div class="row">
@@ -180,7 +180,7 @@
                 <div class="input-group-prepend">
                   <button type="button" class="input-group-text" onclick="randomId()">#</button>
                 </div>
-                <input type="text" class="form-control" name="examId" id="exId" placeholder="Press to generate an Exam ID" required>
+                <input type="text" class="form-control" name="examId" id="exId" placeholder="Press '#' to generate ID" required>
                 <div class="invalid-feedback" style="width: 100%;">
                   Exam ID is required.
                 </div>
