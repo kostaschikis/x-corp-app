@@ -43,13 +43,12 @@
     <div class="container">
       <div class="py-5 text-center">
      
-        <h2>Exam Details</h2>
-        <p class="lead">Search for an existing patient.</p>           
+        <h2>Patients Database</h2>
+        <p class="lead">Search for an existing patient</p>           
       </div>
 
       <form autocomplete="off" action="./exam.php" action="GET">
-            <div class="form-group autocomplete w-100">
-              <label for="exampleInputEmail1">Search patient</label>
+            <div class="form-group autocomplete w-100">              
               <input type="text" class="form-control" id="myInput" name="patient" placeholder="Patient's name">
             </div>  
             <button type="submit" class="btn btn-primary">Search</button>
