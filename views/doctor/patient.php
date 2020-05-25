@@ -32,7 +32,7 @@
     <!-- Make New Application -->
     <form class="needs-validation" action="exam.php" method="POST" novalidate>
       <div class="mb-3">
-        <label for="address2">Patient's SSN</label>
+        <label for="address2">SSN</label>
         <input type="text" class="form-control" name="ssn" id="adrs">
         <div class="invalid-feedback">
           Patient's Address is required.
@@ -41,14 +41,14 @@
       <!-- Patient's Info -->
       <div class="row">
         <div class="col-md-6 mb-3">
-          <label for="firstName">Patient's First name</label>
+          <label for="firstName">First name</label>
           <input type="text" class="form-control" name="firstName" id="firstname" value="" required>
           <div class="invalid-feedback">
             Patient's First name is required.
           </div>
         </div>
         <div class="col-md-6 mb-3">
-          <label for="lastName">Patient's Last name</label>
+          <label for="lastName">Last name</label>
           <input type="text" class="form-control" name="lastName" id="lastname" value="" required>
           <div class="invalid-feedback">
             Patient's Last name is required.
@@ -58,14 +58,14 @@
 
       <div class="row">
         <div class="col-md-6 mb-3">
-          <label for="firstName">Patient's Father's name</label>
+          <label for="firstName">Father's name</label>
           <input type="text" class="form-control" name="fatherName" id="fathersname" value="" required>
           <div class="invalid-feedback">
             Patient's Father's name is required.
           </div>
         </div>
         <div class="col-md-6 mb-3">
-          <label for="lastName">Patient's Mother's name</label>
+          <label for="lastName">Mother's name</label>
           <input type="text" class="form-control" name="motherName" id="mothersname" value="" required>
           <div class="invalid-feedback">
             Patient's Mother's name is required.
@@ -76,14 +76,14 @@
 
       <div class="row">
         <div class="col-md-4 mb-3">
-          <label for="insuranceId">Patient's Insurance ID</label>
+          <label for="insuranceId">Insurance ID</label>
           <input type="text" class="form-control" name="insId" id="insId" required>
           <div class="invalid-feedback">
             Patient's Insurance ID is required
           </div>
         </div>
         <div class="col-md-4 mb-3">
-          <label for="firstName">Patient's Gender</label>
+          <label for="firstName">Gender</label>
           <select class="custom-select d-block w-100" name="gender" id="gndr" required>
             <option>Male</option>
             <option>Female</option>
@@ -91,7 +91,7 @@
           </select>
         </div>
         <div class="col-md-4 mb-3">
-          <label for="lastName">Patient's Date of birth</label>
+          <label for="lastName">Date of birth</label>
           <input type="date" class="form-control" name="birthDay" id="birth" value="" required>
           <div class="invalid-feedback">
             Patient's Date of birth is required.
@@ -100,7 +100,7 @@
       </div>
 
       <div class="mb-3">
-        <label for="address2">Patient's Home Address</label>
+        <label for="address2">Home Address</label>
         <input type="text" class="form-control" name="homeAddress" id="adrs">
         <div class="invalid-feedback">
           Patient's Address is required.
@@ -110,21 +110,21 @@
       <!-- Patient's Phone Numbers -->
       <div class="row">
         <div class="col-md-4 mb-3">
-          <label for="Home Phone">Patient's Home phone</label>
+          <label for="Home Phone">Home phone</label>
           <input type="text" class="form-control" name="homePhone" id="homephone" required>
           <div class="invalid-feedback">
             Patient's Home phone is required.
           </div>
         </div>
         <div class="col-md-4 mb-3">
-          <label for="Work Phone">Patient's Work phone</label>
+          <label for="Work Phone">Work phone</label>
           <input type="text" class="form-control" name="workPhone" id="workphone" required>
           <div class="invalid-feedback">
             Patient's Work phoner is required.
           </div>
         </div>
         <div class="col-md-4 mb-3">
-          <label for="mobile number">Patient's Mobile phone</label>
+          <label for="mobile number">Mobile phone</label>
           <input type="text" class="form-control" name="mobilePhone" id="mobilephone" required>
           <div class="invalid-feedback">
             Patient's Mobile phone is required.
