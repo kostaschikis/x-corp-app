@@ -34,7 +34,7 @@
   <body class="bg-light">
 
     <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand">Radiology Center</a>
+      <a class="navbar-brand">Radiology Center</a> 
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="<?php echo $root ?>php/Auth/logout.php">Logout</a>
@@ -66,6 +66,7 @@
       <div class="py-5 text-center">
         <h2>Logged-in as <?php echo $_SESSION['name'] ?></h2>
         <p class="lead">Track exams and create new appointments</p>
+        <a class="btn btn-primary" href="./calendar.php" role="button">Calendar View</a>
       </div>
 
 
