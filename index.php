@@ -84,7 +84,7 @@
           <label for="exampleFormControlSelect1">Select your Specialty</label>
           <div class="form-group">      
             <select id="inputState" name="specialty" class="form-control" onclick="myFunction()">
-              <option disabled selected>Specialty</option>
+              <option disabled selected></option>
               <option>Doctor</option>
               <option>Radiology Center Staff</option>
               <option>Radiologist</option>
@@ -95,22 +95,21 @@
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="inputEmail4">Email</label>
-              <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+              <label for="inputEmail4">E-mail</label>
+              <input type="email" name="email" class="form-control" id="email">
             </div>
             <div class="form-group col-md-6">
               <label for="inputPassword4">Password</label>
-              <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+              <input type="password" name="password" class="form-control" id="password">
             </div>
           </div>
           
           <!-- Submit -->
           <button type="submit" class="btn btn-primary w-100">Login</button><br><br>
           <!-- Forgot My Password -->
-          <div>
-            <a href="#" class="d-flex justify-content-center">I forgot my password</a>
+          <div>            
             <div class="form-group d-flex justify-content-center">
-              <p>If you dont have an account, create one <a href="register.php">here</a>.</p>
+              <p>Not a member yet? Create an account <a href="register.php">here</a>.</p>
             </div>
           </div>
           
