@@ -28,6 +28,16 @@
     form{
       margin: 0 auto;
     }
+
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: transparent;
+      color: black;
+      text-align: center;
+  }
   </style>
 </head>
 <body>
@@ -92,5 +102,8 @@
       <p>Already have an account? <a href="index.php">Sign In</a>.</p>
     </div>
   </form>
+  <div class="footer">
+    <p><small>Copyright © 2020 X CORP</small></p>
+  </div>
 </body>
 </html>
