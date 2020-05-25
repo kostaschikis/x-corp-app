@@ -59,7 +59,7 @@
     <main role="main" class="container">
       <div class="py-5 text-center">
         <h2>Logged-in as <?php echo $_SESSION['name'] ?></h2>
-        <p class="lead">Edw mporeite na dhmiourgisete ena rantevou gia thn eksetasi enos astheni</p>
+        <p class="lead">Here you can track your exams or create a new one</p>
         <a class="btn btn-primary" href="./select-action.php" role="button">New Exam</a>
       </div>
 
