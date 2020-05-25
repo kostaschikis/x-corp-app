@@ -54,7 +54,7 @@
   <main role="main" class="container">
     <div class="py-5 text-center">
       <h2>Exam details</h2>
-      <p class="lead">Edw mporeite na deite tis leptomeries mias eksetasis kayhos kai na tin oloklirosete</p>
+      <p class="lead">Information about patient and exam</p>
     </div>
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
