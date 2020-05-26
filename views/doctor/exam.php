@@ -20,7 +20,7 @@
     $patient = $_GET['patient'];
     preg_match('#\((.*?)\)#', $patient, $match);
     $patient_ssn = $match[1];
-    
+
     // Query The Database to Fetch Patient's Info
     $patientInfo = getPatientInfo($patient_ssn);
   }
@@ -82,6 +82,7 @@
      <p class="lead">Fill in the exam details</p>           
    </div>
     
+   <!-- Patient's Info Box -->
     <form class="needs-validation" action="<?php echo $root?>php/app/StoreActinoRequest.php" method="POST" novalidate>
       <div class="row">
         <div class="col-md-6 order-md-2 mb-4">
@@ -151,26 +152,13 @@
       
       <!-- Actinology Request Information -->
       <div class="col-md-6 order-md-1">
-        <h4 class="mb-3">Exam Details</h4>     
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="NSM">National Security Number</label>
-              <div class="input-group">
-                <input type="text" class="form-control" name="nsn" id="NSn" required>
-                <div class="invalid-feedback" style="width: 100%;">
-                  National Security Number is required.
-                </div>
-              </div>
-            </div>
-            <!-- Priority -->
-            <div class="col-md-6 mb-3">
-              <label for="Priority">Exam Priority</label>
-              <select class="custom-select d-block w-100" name="priority" id="prior" required>
-                <option>High Priority</option>
-                <option>Low Priority</option>
-              </select>
-            </div>
-          </div>
+        <h4 class="mb-3">Exam Details</h4>       
+          <!-- Priority -->
+          <label for="Priority">Exam Priority</label>
+          <select class="custom-select d-inline w-100 mb-3" name="priority" id="prior" required>
+            <option>High Priority</option>
+            <option>Low Priority</option>
+          </select>
 
           <!-- Exam ID & Date -->
           <div class="row">
