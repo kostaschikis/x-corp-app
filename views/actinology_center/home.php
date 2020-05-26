@@ -129,6 +129,8 @@
                                 <input type='hidden' name='reqId' value='$id'>
                               </form>
                             </td>";
+                    } else {
+                      echo "<td>-</td>";
                     }
             echo  "</tr>";
           }

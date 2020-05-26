@@ -26,7 +26,6 @@
         $patient['mobilePhone'] = $_POST['mobilePhone'];
 
         // Actinology Request Info
-        $request['nsn'] = $_POST['nsn'];
         $request['priority'] = transformPriority($_POST['priority']); 
         $request['examId'] = $_POST['examId'];
         $request['sendDate'] = $_POST['sendDate'];
