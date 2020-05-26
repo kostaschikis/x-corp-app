@@ -5,7 +5,6 @@
 
   // Includes
   include $root.'php/functions.php';
-  include $root.'php/app/HomeViewRequests.php';
 
   // Protect The Route
   if (!is_user_logged_in()) {
@@ -22,6 +21,9 @@
       <link rel="icon" type="image/png" href="../../img/logo.png">
 
       <meta charset="utf-8">
+        <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <link rel="stylesheet" href="../../css/center.css">
       <script src="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.js"></script>
       <link href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler_material.css" 
               rel="stylesheet" type="text/css" charset="utf-8">
@@ -43,6 +45,14 @@
         </style> 
     </head> 
     <body> 
+    <nav class="navbar navbar-dark bg-dark">
+      <a href="home.php" class="navbar-brand">Radiology Center</a> 
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo $root ?>php/Auth/logout.php">Logout</a>
+        </li>
+      </ul>
+    </nav>
     <div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100%;'> 
         <div class="dhx_cal_navline"> 
             <div class="dhx_cal_prev_button">&nbsp;</div> 
