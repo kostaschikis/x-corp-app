@@ -15,7 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'examDate' => $_POST['examDate'],
         'radiologist' => '',
         'ssn' => $_GET['ssn'],
-        'comments' => $_POST['comments']
+        'comments' => $_POST['comments'],
+        'completed' => '0'
     ];
 
     
@@ -51,14 +52,14 @@ function storeAppointment(array $data): bool {
 
     $error = '';
 
-    $query = "INSERT INTO `appointment` (id, request_id, priority, exam_date, radiologist, patient_ssn, comments)
-              VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO `appointment` (id, request_id, priority, exam_date, radiologist, patient_ssn, comments, completed)
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $query)) {
         head("./StoreActinoRequest?dbError=true");
     } else {
-        mysqli_stmt_bind_param($stmt, "sssssss", $data['appId'], $data['reqId'], $data['priority'], $data['examDate'], $data['radiologist'], $data['ssn'], $data['comments']);
+        mysqli_stmt_bind_param($stmt, "sssssssi", $data['appId'], $data['reqId'], $data['priority'], $data['examDate'], $data['radiologist'], $data['ssn'], $data['comments'], $data['completed']);
         mysqli_stmt_execute($stmt);
         $error = mysqli_stmt_error($stmt);
     }
