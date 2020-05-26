@@ -1,3 +1,17 @@
+<?php
+  session_start();
+  $root = '../../';
+
+  // Includes
+  include $root.'php/functions.php';
+  include $root.'php/app/HomeViewRequests.php';
+
+  // Protect The Route
+  if (!is_user_logged_in()) {
+    header("Location:" . $root);  
+    exit();
+  }
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,7 +33,7 @@
     <a href="home.php" class="navbar-brand">Doctor Panel</a>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Logout</a>
+        <a class="nav-link" href="<?php echo $root ?>php/Auth/logout.php">Logout</a>
       </li>
     </ul>
   </nav>
