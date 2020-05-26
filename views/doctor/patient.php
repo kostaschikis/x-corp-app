@@ -44,10 +44,10 @@
       <p class="lead">Patient's Information</p>
     </div>
     <!-- Make New Application -->
-    <form class="needs-validation" action="exam.php" method="POST" novalidate>
+    <form class="needs-validation" action="exam.php" method="POST">
       <div class="mb-3">
         <label for="address2">SSN</label>
-        <input type="text" class="form-control" name="ssn" id="adrs">
+        <input type="text" class="form-control" name="ssn" id="adrs" required>
         <div class="invalid-feedback">
           Patient's Address is required.
         </div>
@@ -56,14 +56,14 @@
       <div class="row">
         <div class="col-md-6 mb-3">
           <label for="firstName">First name</label>
-          <input type="text" class="form-control" name="firstName" id="firstname" value="" required>
+          <input type="text" class="form-control" name="firstName" id="firstname" required>
           <div class="invalid-feedback">
             Patient's First name is required.
           </div>
         </div>
         <div class="col-md-6 mb-3">
           <label for="lastName">Last name</label>
-          <input type="text" class="form-control" name="lastName" id="lastname" value="" required>
+          <input type="text" class="form-control" name="lastName" id="lastname" required>
           <div class="invalid-feedback">
             Patient's Last name is required.
           </div>
@@ -73,14 +73,14 @@
       <div class="row">
         <div class="col-md-6 mb-3">
           <label for="firstName">Father's name</label>
-          <input type="text" class="form-control" name="fatherName" id="fathersname" value="" required>
+          <input type="text" class="form-control" name="fatherName" id="fathersname" required>
           <div class="invalid-feedback">
             Patient's Father's name is required.
           </div>
         </div>
         <div class="col-md-6 mb-3">
           <label for="lastName">Mother's name</label>
-          <input type="text" class="form-control" name="motherName" id="mothersname" value="" required>
+          <input type="text" class="form-control" name="motherName" id="mothersname" required>
           <div class="invalid-feedback">
             Patient's Mother's name is required.
           </div>
@@ -106,7 +106,7 @@
         </div>
         <div class="col-md-4 mb-3">
           <label for="lastName">Date of birth</label>
-          <input type="date" class="form-control" name="birthDay" id="birth" value="" required>
+          <input type="date" class="form-control" name="birthDay" id="birth" required>
           <div class="invalid-feedback">
             Patient's Date of birth is required.
           </div>
