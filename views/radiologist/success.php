@@ -30,7 +30,7 @@
     <div class="card text-center" style="width: 50%; margin: 0 auto; margin-top: 20%;">
       <div class="card-body">
         <h5 class="card-title">Success</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text">You completed the Exam. Patient is happy</p>
         <a href="home.php" class="btn btn-primary">Go home</a>
       </div>
     </div>
