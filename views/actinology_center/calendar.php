@@ -21,12 +21,13 @@
       <link rel="icon" type="image/png" href="../../img/logo.png">
 
       <meta charset="utf-8">
-        <!-- Bootstrap CSS -->
+      <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
       <link rel="stylesheet" href="../../css/center.css">
+
+      <!-- dhtmlx calendar -->
       <script src="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.js"></script>
-      <link href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler_material.css" 
-              rel="stylesheet" type="text/css" charset="utf-8">
+      <link href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler_material.css" rel="stylesheet" type="text/css" charset="utf-8">
         <style>
           html, body{
             margin:0px;
