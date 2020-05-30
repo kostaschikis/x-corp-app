@@ -49,9 +49,14 @@
 
       <form autocomplete="off" action="./exam.php" action="GET">
             <div class="form-group autocomplete w-100">              
-              <input type="text" class="form-control" id="myInput" name="patient" placeholder="Patient's name">
+              <input type="text" class="form-control" id="patientSearch" name="patient" placeholder="Patient's name">
+            </div>
+            <div class='d-none flex-row justify-content-center align-content-center mb-2' id="nullPatient">
+              <small id='passwordHelp' class='text-danger'>
+                Invalid Patient
+              </small>      
             </div>  
-            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="submit" class="btn btn-primary">Confirm</button>
         </form>
     </div>
   </div>
@@ -61,5 +66,6 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
 <script src="<?php echo $root?>js/fetchPatients.js"></script>
+<script src="<?php echo $root?>js/handler.js"></script>
 </body>
 </html>

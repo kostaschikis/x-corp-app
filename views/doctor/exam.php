@@ -20,9 +20,19 @@
     $patient = $_GET['patient'];
     preg_match('#\((.*?)\)#', $patient, $match);
     $patient_ssn = $match[1];
+    
+    // 1st Step Validation
+    if ($patient_ssn == null) {
+      header("Location: search.php?error=nullpatient");
+    }
 
     // Query The Database to Fetch Patient's Info
     $patientInfo = getPatientInfo($patient_ssn);
+    
+    // 2nd Step Validation
+    if (empty($patientInfo)) {
+      header("Location: search.php?error=nullpatient");
+    }
   }
 
   // Get POST Data
