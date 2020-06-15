@@ -93,9 +93,11 @@
     function patientExist(string $ssn): bool {
         $root = '../../';
         include $root.'php/config.php';
-
-        $stmt = $conn->prepare( "SELECT `name` FROM `patient` WHERE `ssn` = $ssn" );
+        
+        $stmt = $conn->prepare( "SELECT `name` FROM `patient` WHERE `ssn` = ?" );
+        mysqli_stmt_bind_param($stmt, "s", $ssn);
         mysqli_stmt_execute($stmt);
+
         $result = mysqli_stmt_get_result($stmt);
         $stmt->close();
 
