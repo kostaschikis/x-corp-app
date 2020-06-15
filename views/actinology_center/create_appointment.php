@@ -85,7 +85,6 @@
           class="needs-validation" 
           action="<?php echo $root.'php/app/StoreAppointment.php?reqId='.$reqId.'&ssn='.$ssn.'&priority='.$priority?>" 
           method="POST" 
-          novalidate
         >
 
           <div class="row">
@@ -103,7 +102,7 @@
             </div>
             <div class="col-md-6 mb-3">
               <label for="Date">Exam Date</label>
-              <input type="datetime-local" class="form-control" name="examDate" id="examdate" value="<?php echo $suggestedDateTime ?>" min="<?php echo $suggestedDateTime ?>">
+              <input type="datetime-local" class="form-control" name="examDate" id="examdate" value="<?php echo $suggestedDateTime ?>" min="<?php echo $suggestedDateTime ?>" required>
               <div class="invalid-feedback">
                 Exam date is required.
               </div>
@@ -113,7 +112,7 @@
           <!-- Available Actinologists -->
           <div class="form-group">
             <label for="doctor">Available Actinologists</label>
-            <select class="form-control" name="available-radiologist" id="radiologist">
+            <select class="form-control" name="available-radiologist" id="radiologist" required>
               <?php
                 foreach($radiologists as $radiologist) {
                   echo "<option>$radiologist</option>";
