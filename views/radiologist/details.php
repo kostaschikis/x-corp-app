@@ -70,28 +70,28 @@
     </ul>
     <div class="tab-content" id="myTabContent"><br>
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <label for="firstName">National Security Number: <?php echo $patientInfo['ssn'] ?></label><br>
-        <label for="firstName">First Name: <?php echo $patientInfo['name'] ?></label><br>
-        <label for="firstName">Last Name: <?php echo $patientInfo['lastname'] ?></label><br>
-        <label for="firstName">Father's Name: <?php echo $patientInfo['father_name'] ?></label><br>
-        <label for="firstName">Mother's Name <?php echo $patientInfo['mother_name'] ?></label><br>
-        <label for="firstName">Insurance ID: <?php echo $patientInfo['insurance_id'] ?></label><br>
-        <label for="firstName">Gender: <?php echo $patientInfo['gender'] ?></label><br>
-        <label for="firstName">Birthday: <?php echo $patientInfo['birth_date'] ?></label><br>
-        <label for="firstName">Address: <?php echo $patientInfo['home_address'] ?></label><br>
-        <label for="firstName">Home Phone: <?php echo $patientInfo['home_number'] ?></label><br>
-        <label for="firstName">Work Phone: <?php echo $patientInfo['work_number'] ?></label><br>
-        <label for="firstName">Mobile Phone: <?php echo $patientInfo['mobile_number'] ?></label><br>
+        <label for="ssn">National Security Number: <?php echo $patientInfo['ssn'] ?></label><br>
+        <label for="name">First Name: <?php echo $patientInfo['name'] ?></label><br>
+        <label for="lastname">Last Name: <?php echo $patientInfo['lastname'] ?></label><br>
+        <label for="fatherName">Father's Name: <?php echo $patientInfo['father_name'] ?></label><br>
+        <label for="motherName">Mother's Name <?php echo $patientInfo['mother_name'] ?></label><br>
+        <label for="insuranceId">Insurance ID: <?php echo $patientInfo['insurance_id'] ?></label><br>
+        <label for="gender">Gender: <?php echo $patientInfo['gender'] ?></label><br>
+        <label for="birthDate">Birthday: <?php echo $patientInfo['birth_date'] ?></label><br>
+        <label for="homeAddress">Address: <?php echo $patientInfo['home_address'] ?></label><br>
+        <label for="homeNumber">Home Phone: <?php echo $patientInfo['home_number'] ?></label><br>
+        <label for="workNumber">Work Phone: <?php echo $patientInfo['work_number'] ?></label><br>
+        <label for="mobileNumber">Mobile Phone: <?php echo $patientInfo['mobile_number'] ?></label><br>
       </div>
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <label for="firstName">Exam ID: <?php echo $appInfo['examId'] ?></label><br>
-        <label for="firstName">Examination Type: <?php echo $appInfo['examType'] ?></label><br>
+        <label for="examId">Exam ID: <?php echo $appInfo['examId'] ?></label><br>
+        <label for="examinationType">Examination Type: <?php echo $appInfo['examType'] ?></label><br>
         <!-- Comments & Description Section - Make A Paragraph or Textarea -->
-        <label for="firstName">Comments:</label>
+        <label for="comments">Comments:</label>
         <p class="border">
           <?php echo $appInfo['comments']?>
         </p><br>
-        <label for="firstName">Description:</label>
+        <label for="description">Description:</label>
         <p class="border">
           <?php echo $appInfo['description']?>
         </p>
