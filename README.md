@@ -1,10 +1,10 @@
 # Health Web Apps | Semester Project 2020
 
-1. Place "name" attribute @ form fields | DONE
-2. Split Patient Form and Actinology Request Form @ Doctor's View | DONE
-3. Success Page | DONE
-4. Appointment must have specified hour | DONE
-5. Doctor Cards & Radiology Center Home => for each exam must have "approved", "completed" column | DONE
+A web-based platform to help with the management of radiological procedures of health districts.
+Doctors, Radiologists and Actinology Center Admins have the ability to register on the platform and start managing X-ray exams.
+
+## Why?
+Actinology centres can use this platform to assign X-ray exams to the right radiologists at the right time, based on **availability** and **exam priority**. This saves valuable time for patients and resources for hospitals.
 
 ## Final To-dos | May 2020
 
@@ -18,8 +18,3 @@
 - [x] Add register to home page nav
 - [x] radiologist details -> fill inputs
 - [x] make actinology center request to delete appointment a post request
-
-## Minor Tasks for Later
-
-- [ ] Turn banner messages into sessions
-- [ ] Utilize more objective code
