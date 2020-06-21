@@ -18,3 +18,6 @@ Actinology centres can use this platform to assign X-ray exams to the right radi
 - [x] Add register to home page nav
 - [x] radiologist details -> fill inputs
 - [x] make actinology center request to delete appointment a post request
+
+## Contributors
+[@georgegiam](https://github.com/georgegiam)
