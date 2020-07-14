@@ -11,6 +11,10 @@ Doctors, Radiologists and Actinology Center Admins have the ability to register 
 
 Actinology centres can use this platform to assign X-ray exams to the right radiologists at the right time, based on **availability** and **exam priority**. This saves valuable **time** for patients and resources for hospitals.
 
+## What does it do?
+
+...
+
 ## Tech Stack
 
 ### Front End
