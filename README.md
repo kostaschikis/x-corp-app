@@ -4,7 +4,7 @@ Part of [eHealth Services](https://www.ds.unipi.gr/en/courses/e-health-services-
 
 ## What is it?
 
-It is a web-based platform to help with the management of radiological procedures of health districts.
+It is a web-based platform that helps with the management of radiological procedures of health districts.
 Doctors, Radiologists and Actinology Center Admins have the ability to register on the platform and start managing X-ray exams.
 
 ## What problem does this solve?
