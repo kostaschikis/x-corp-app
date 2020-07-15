@@ -9,7 +9,7 @@ Doctors, Radiologists and Actinology Center Admins have the ability to register 
 
 ## What problem does this solve
 
-Actinology centres can use this platform to assign X-ray exams to the right radiologists at the right time, based on **availability** and **exam priority**. This saves valuable **time** for patients and resources for hospitals.
+Actinology centers can use this platform to assign X-ray exams to the right radiologists at the right time, based on **availability** and **exam priority**. This saves valuable **time** for patients and resources for hospitals.
 
 ## What does it do
 
@@ -20,7 +20,7 @@ The app recommends the right radiologist(s) based on:
   * **Radiologist Availability**.
   * **Number of appointments each radiologist has**.
   * **Exam priority** (that has been set by the doctor).  
-* The radiologist is assigned the appointment and completes the x-ray exam.
+* The radiologist is assigned the appointment and completes the X-ray exam.  
 
 ## Tech Stack
 
