@@ -14,7 +14,7 @@ Actinology centers can use this platform to assign X-ray exams to the right radi
 ## What does it do
 
 * A **Doctor** makes a radiology request for a patient.  
-* The **Actinology Center** Admin sees the doctor's radiology request and then needs to make the appointment for the patient.  
+* The **Actinology Center** admin sees the doctor's radiology request and then needs to set an appointment for the patient.  
 The problem is **which radiologist should be assigned the appointment**.  
 The app recommends the right radiologist(s) based on:  
   * **Radiologist Availability**.
