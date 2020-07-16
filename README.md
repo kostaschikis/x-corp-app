@@ -2,7 +2,8 @@
 
 <h1 align="left"><a href="https://www.x-corp.systems">X-CORP</a> eHealth App</h1>
 
-Part of [eHealth Services](https://www.ds.unipi.gr/en/courses/e-health-services-2/) Semester Project 2020
+Part of [eHealth Services](https://www.ds.unipi.gr/en/courses/e-health-services-2/) Semester Project 2020  
+![MIT LICENSE](https://img.shields.io/github/license/KostasXikis/x-corp-app?style=flat-square)
 
 ## What is it
 
