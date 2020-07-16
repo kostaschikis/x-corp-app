@@ -16,7 +16,6 @@
 <html>
     <head>
       <title> Getting started with dhtmlxScheduler</title>
-
       <!-- Favicon -->
       <link rel="icon" type="image/png" href="../../img/logo.png">
 

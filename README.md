@@ -1,3 +1,5 @@
+<div align="center"><img src="img/logo.webp"></div>
+
 # [X-CORP](https://www.x-corp.systems) eHealth App
 
 Part of [eHealth Services](https://www.ds.unipi.gr/en/courses/e-health-services-2/) Semester Project 2020
