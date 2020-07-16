@@ -1,6 +1,6 @@
-<div align="center"><img src="img/logo.webp"></div>
+<img align="right" src="img/logo.webp"></div>
 
-# [X-CORP](https://www.x-corp.systems) eHealth App
+<h1 align="left"><a href="https://www.x-corp.systems">X-CORP</a>eHealth App</h1>
 
 Part of [eHealth Services](https://www.ds.unipi.gr/en/courses/e-health-services-2/) Semester Project 2020
 
