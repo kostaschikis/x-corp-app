@@ -5,16 +5,16 @@
 Part of [eHealth Services](https://www.ds.unipi.gr/en/courses/e-health-services-2/) Semester Project 2020  
 ![MIT LICENSE](https://img.shields.io/github/license/KostasXikis/x-corp-app?style=flat-square)
 
-## What is it
+## What Is It
 
 It is a web-based platform that helps with the management of radiological procedures of health districts.
 Doctors, Radiologists and Actinology Center admins have the ability to register on the platform and start managing X-ray exams.
 
-## What problem does this solve
+## What Problem Does This Solve
 
 Actinology centers can use this platform to assign X-ray exams to the right radiologists at the right time, based on **availability** and **exam priority**. This saves valuable **time** for patients and resources for hospitals.
 
-## What does it do
+## What Does It Do
 
 * A **Doctor** makes a radiology request for a patient.  
 * The **Actinology Center** admin sees the doctor's radiology request and then needs to set an appointment for the patient.  
