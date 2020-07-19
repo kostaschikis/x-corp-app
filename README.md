@@ -27,25 +27,13 @@ The app recommends the right radiologist(s) based on:
 
 ## Tech Stack
 
-### Front End
-
-* HTML5/CSS3
-* Bootstrap
-* jQuery
-* JavaScript
-* [DHTMLX Scheduler](https://dhtmlx.com/docs/products/dhtmlxScheduler/)
-
-### Back End
-
-* PHP
-
-### Database
-
-* MySQL
-
-### Server
-
-* Apache
+Front End | Back End | Database | Server
+:------------: | :-------------: | :-------------: | :-------------: |
+HTML5/CSS3 | PHP | MySQL | Apache
+Boostrap 4 | | |
+jQuery | | |
+JavaScript | | |
+[DHTMLX Scheduler](https://dhtmlx.com/docs/products/dhtmlxScheduler/) | | |
 
 ## Some API Endpoints
 
