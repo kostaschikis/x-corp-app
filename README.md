@@ -39,35 +39,35 @@ JavaScript |     |       |
 
 ### Fetch All Actinology Requests
 
-**POST** `http://localhost/health_web_app/php/app/FetchActinoRequests.php`
+**GET** `http://localhost/x-corp-app/php/app/FetchActinoRequests.php`
 
 ```json
 [
   {
-    "id": "ex3532870249",
-    "priority": "low",
-    "date_sent": "2020-05-16 05:12:00",
-    "examination": "MRI",
-    "suggested_date": "2020-05-21",
-    "description": "kostakis",
-    "patient_ssn": "257-60-7795",
-    "doctor": "kostaschikis@gmail.com",
+    "id": "ex0518987626",
+    "priority": "high",
+    "date_sent": "2020-06-15 12:56:00",
+    "examination": "Angiography",
+    "suggested_date": "2020-06-30",
+    "description": "",
+    "patient_ssn": "576-92-0309",
+    "doctor": "darryl.miller@example.com",
     "approval": 1,
     "completed": 0,
-    "patient_info": "Travis Gibson (257-60-7795)"
+    "patient_info": "Rick  Simmons (576-92-0309)"
   },
   {
-    "id": "ex1296103736",
+    "id": "ex7545321819",
     "priority": "high",
-    "date_sent": "2020-05-18 11:45:00",
-    "examination": "CT Scan",
-    "suggested_date": "2020-05-21",
-    "description": "gghkl",
-    "patient_ssn": "84675464",
-    "doctor": "kati@gmail.com",
+    "date_sent": "2020-06-15 12:42:00",
+    "examination": "Interventional neurology",
+    "suggested_date": "2020-06-26",
+    "description": "",
+    "patient_ssn": "574-52-2117",
+    "doctor": "darryl.miller@example.com",
     "approval": 1,
     "completed": 0,
-    "patient_info": "Clifton Lopez (84675464)"
+    "patient_info": "Violet Price (574-52-2117)"
   },
   ...
 ]
@@ -75,30 +75,43 @@ JavaScript |     |       |
 
 ### Fetch All Appointments
 
-**POST** `http://localhost/health_web_app/php/app/FetchAppointments.php`
+**GET** `http://localhost/x-corp-app/php/app/FetchAppointments.php`
 
 ```json
   [
     {  
       "0": "completion",
-      "id": "ap5041214586",
-      "start_date": "2020-05-26 08:00:00",
-      "end_date": "2020-05-26 08:00:00",
-      "text": "Patient SSN: 257-60-7795, Radiologist: actino3@lab.com, Priority: low, Completion: waiting",
+      "id": "ap5564287366",
+      "start_date": "2020-06-29 19:00:00",
+      "end_date": "2020-06-29 19:00:00",
+      "text": "Patient SSN: 574-52-2117, Radiologist: denise.rogers@example.com, Priority: high, Completion: waiting",
       "type": "waiting"
     },
     {
       "0": "completion",
-      "id": "ap5941773206",
-      "start_date": "2020-05-23 12:05:00",
-      "end_date": "2020-05-23 12:05:00",
-      "text": "Patient SSN: 84675464, Radiologist: actino2@lab, Priority: high, Completion: waiting",
-      "type": "waiting"
+      "id": "ap6247731792",
+      "start_date": "2020-06-05 18:20:00",
+      "end_date": "2020-06-05 18:20:00",
+      "text": "Patient SSN: 529-13-6401, Radiologist: butler@gmail.com, Priority: low, Completion: completed",
+      "type": "completed"
     },
     ...
   ]
 ```
 
+### Fetch an Array of All Patients Stored in The Database
+
+**GET** `http://localhost/x-corp-app/php/app/FetchPatients.php`
+
+```json
+  [
+    "Jerome Davis (040-36-7066)",
+    "Javier Burke (529-13-6401)",
+    "Violet Price (574-52-2117)",
+    "Rick  Simmons (576-92-0309)",
+    ...
+  ]
+```
 
 ## Contributors
 
