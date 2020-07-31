@@ -30,14 +30,48 @@ The app recommends the right radiologist(s) based on:
 Front End | Back End | Database | Server
 :------------: | :-------------: | :-------------: | :-------------: |
 HTML5/CSS3 | PHP | MySQL | Apache
-Boostrap 4 | | |
-jQuery | | |
-JavaScript | | |
+Boostrap 4 |     |       |
+jQuery     |     |       |
+JavaScript |     |       |
 [DHTMLX Scheduler](https://dhtmlx.com/docs/products/dhtmlxScheduler/) | | |
 
 ## Some API Endpoints
 
-coming soon...
+### Fetch All Actinology Requests
+
+**POST** `http://localhost/health_web_app/php/app/FetchActinoRequests.php`
+
+```json
+[
+  {
+    "id": "ex3532870249",
+    "priority": "low",
+    "date_sent": "2020-05-16 05:12:00",
+    "examination": "MRI",
+    "suggested_date": "2020-05-21",
+    "description": "kostakis",
+    "patient_ssn": "257-60-7795",
+    "doctor": "kostaschikis@gmail.com",
+    "approval": 1,
+    "completed": 0,
+    "patient_info": "Travis Gibson (257-60-7795)"
+  },
+  {
+    "id": "ex1296103736",
+    "priority": "high",
+    "date_sent": "2020-05-18 11:45:00",
+    "examination": "CT Scan",
+    "suggested_date": "2020-05-21",
+    "description": "gghkl",
+    "patient_ssn": "84675464",
+    "doctor": "kati@gmail.com",
+    "approval": 1,
+    "completed": 0,
+    "patient_info": "Clifton Lopez (84675464)"
+  },
+  ...
+]
+```
 
 ## Contributors
 
