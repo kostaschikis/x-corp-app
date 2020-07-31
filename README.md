@@ -68,8 +68,7 @@ JavaScript |     |       |
     "approval": 1,
     "completed": 0,
     "patient_info": "Violet Price (574-52-2117)"
-  },
-  {...}
+  }
 ]
 ```
 
@@ -94,8 +93,7 @@ JavaScript |     |       |
       "end_date": "2020-06-05 18:20:00",
       "text": "Patient SSN: 529-13-6401, Radiologist: butler@gmail.com, Priority: low, Completion: completed",
       "type": "completed"
-    },
-    {...}
+    }
   ]
 ```
 
