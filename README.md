@@ -69,7 +69,7 @@ JavaScript |     |       |
     "completed": 0,
     "patient_info": "Violet Price (574-52-2117)"
   },
-  ...
+  {...}
 ]
 ```
 
@@ -95,7 +95,7 @@ JavaScript |     |       |
       "text": "Patient SSN: 529-13-6401, Radiologist: butler@gmail.com, Priority: low, Completion: completed",
       "type": "completed"
     },
-    ...
+    {...}
   ]
 ```
 
@@ -108,8 +108,7 @@ JavaScript |     |       |
     "Jerome Davis (040-36-7066)",
     "Javier Burke (529-13-6401)",
     "Violet Price (574-52-2117)",
-    "Rick  Simmons (576-92-0309)",
-    ...
+    "Rick  Simmons (576-92-0309)"
   ]
 ```
 
