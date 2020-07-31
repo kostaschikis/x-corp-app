@@ -73,6 +73,33 @@ JavaScript |     |       |
 ]
 ```
 
+### Fetch All Appointments
+
+**POST** `http://localhost/health_web_app/php/app/FetchAppointments.php`
+
+```json
+  [
+    {  
+      "0": "completion",
+      "id": "ap5041214586",
+      "start_date": "2020-05-26 08:00:00",
+      "end_date": "2020-05-26 08:00:00",
+      "text": "Patient SSN: 257-60-7795, Radiologist: actino3@lab.com, Priority: low, Completion: waiting",
+      "type": "waiting"
+    },
+    {
+      "0": "completion",
+      "id": "ap5941773206",
+      "start_date": "2020-05-23 12:05:00",
+      "end_date": "2020-05-23 12:05:00",
+      "text": "Patient SSN: 84675464, Radiologist: actino2@lab, Priority: high, Completion: waiting",
+      "type": "waiting"
+    },
+    ...
+  ]
+```
+
+
 ## Contributors
 
 [@georgegiam](https://github.com/georgegiam)
